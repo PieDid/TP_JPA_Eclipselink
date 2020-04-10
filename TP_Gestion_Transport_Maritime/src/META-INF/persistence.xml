@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	
+	<persistence-unit name="pu_TP_JPA" transaction-type="RESOURCE_LOCAL">
+	
+		<!-- 1. Provider (permet de préciser le fournisseur de persistence (provider) => Implémentation de JPA "EclipseLink" -->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+			
+		<!-- 2. Déclaration des classes entités -->
+		
+
+				
+		
+		<!-- 3. Propriétés JPA -->
+			<properties>
+			
+				<!-- 3.1. Propriétés pour définir les informations de connexion à la base de données -->
+				<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+				<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_cours_jpa_eclipselink"/>
+				<property name="javax.persistence.jdbc.user" value="root"/>
+				<property name="javax.persistence.jdbc.password" value="root"/>
+				
+				<!-- 3.2. Propriété pour définir la stratégie de génération des tables -->
+				<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+				 
+				<!-- 3.3. Propriété pour afficher les requêtes SQL dans la console d'Eclipse -->
+				<property name="eclipselink.logging.level" value="FINE"/>
+			
+			</properties>	
+	
+	
+	</persistence-unit>
+</persistence>
