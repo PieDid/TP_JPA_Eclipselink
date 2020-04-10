@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.intiformation.association.oneToMany.SessionFormation;
-
 @Entity(name="marchandise")
 @Table(name="marchandises")
 public class Marchandise implements Serializable {

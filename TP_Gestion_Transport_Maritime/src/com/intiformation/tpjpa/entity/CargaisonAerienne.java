@@ -13,7 +13,7 @@ public class CargaisonAerienne extends Cargaison{
 	/*_________________ props ________________*/
 	
 	@Column(name = "poids_maximal")
-	String double poidsMaximal;
+	private double poidsMaximal;
 
 	
 
