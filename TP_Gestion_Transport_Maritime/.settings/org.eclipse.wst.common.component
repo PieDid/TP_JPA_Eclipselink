@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="TP_Gestion_Transport_Maritime">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="TP_Gestion_Transport_Maritime"/>
+        <property name="java-output-path" value="/TP_Gestion_Transport_Maritime/bin"/>
+    </wb-module>
+</project-modules>
