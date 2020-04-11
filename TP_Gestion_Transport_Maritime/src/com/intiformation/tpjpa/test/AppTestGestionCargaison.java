@@ -69,8 +69,18 @@ public class AppTestGestionCargaison {
 		System.out.println("-------------------------------------------------------------------------------------\n\n");
 		
 		
-		/* double poids1 = service.poidsTotal(1L);
-		System.out.println("Poides de la cargaison 1 : " + poids1); */
+		double poids1 = service.poidsTotal(car1);
+		System.out.println("Poids de la cargaison 1 : " + poids1); 
+		
+		double vol1 = service.volumeTotal(car1);
+		System.out.println("Poides de la cargaison 1 : " + vol1); 
+		
+		
+		double cout1 = service.coutCargaison(1L);
+		System.out.println("Cout de la cargaison 1 : " + cout1); 
+		
+		double cout2 = service.coutCargaison(2L);
+		System.out.println("Cout de la cargaison 2 : " + cout2); 
 		
 
 	}//end main

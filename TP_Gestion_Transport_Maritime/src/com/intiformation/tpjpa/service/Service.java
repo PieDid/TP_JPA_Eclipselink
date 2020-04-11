@@ -78,8 +78,8 @@ public class Service implements IService {
 	 * @return : le poids total de la cargaison avec l'id idCargaison
 	 */
 	@Override
-	public double poidsTotal(Long idCargaison) {
-		return marchandiseDao.poidsTotal(idCargaison);
+	public double poidsTotal(Cargaison cargaison) {
+		return marchandiseDao.poidsTotal(cargaison);
 	}
 	
 	/**
@@ -88,8 +88,8 @@ public class Service implements IService {
 	 * @return : le volume total de la cargaison avec l'id idCargaison
 	 */
 	@Override
-	public double volumeTotal(Long idCargaison) {
-		return marchandiseDao.volumeTotal(idCargaison);
+	public double volumeTotal(Cargaison cargaison) {
+		return marchandiseDao.volumeTotal(cargaison);
 	}
 	
 	/**
@@ -180,7 +180,7 @@ public class Service implements IService {
 		Cargaison cargaison = cargaisonDao.getById(idCargaison);
 		
 		// cout = a * distance * poids_marchandise
-		double cout = cargaison.getDistance() * poidsTotal(cargaison.getIdCargaison());
+		double cout = cargaison.getDistance() * poidsTotal(cargaison);
 		
 		
 		if(cargaison.getClass().equals(CargaisonRoutiere.class)){
@@ -188,7 +188,7 @@ public class Service implements IService {
 			// --> la cargaison est une cargaiosn routiere
 			
 			// test du volume de la cargaison
-			if(volumeTotal(cargaison.getIdCargaison()) < 380000) {
+			if(volumeTotal(cargaison) < 380000) {
 				// V < 380000 => a = 4
 				cout *= 4.0;	
 			} else {
@@ -202,7 +202,7 @@ public class Service implements IService {
 			// --> la cargaison est une cargaison aerienne
 			
 			// test du volume de la cargaison
-			if(volumeTotal(cargaison.getIdCargaison()) < 80000) {
+			if(volumeTotal(cargaison) < 80000) {
 				// V < 80000 => a = 10
 				cout *= 10.0;	
 			} else {

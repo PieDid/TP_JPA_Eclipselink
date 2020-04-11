@@ -21,9 +21,9 @@ public interface IMarchandiseDao<Marchandise> {
 	
 	public Long countMarchandise();
 	
-	public double poidsTotal(Long idCargaison);
+	public double poidsTotal(Cargaison cargaison);
 	
-	public double volumeTotal(Long idCargaison);
+	public double volumeTotal(Cargaison cargaison);
 
 	
 	

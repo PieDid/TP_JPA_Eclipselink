@@ -47,14 +47,14 @@ public interface IService {
 	 * @param idMarchandise : l'id de la cargaison
 	 * @return : le poids total de la cargaison avec l'id idCargaison
 	 */
-	public double poidsTotal(Long idCargaison);
+	public double poidsTotal(Cargaison cargaison);
 	
 	/**
 	 * retourne le volume total des marchandises d'une cargaison
 	 * @param idCargaison : l'id de la cargaison
 	 * @return : le volume total de la cargaison avec l'id idCargaison
 	 */
-	public double volumeTotal(Long idCargaison);
+	public double volumeTotal(Cargaison cargaison);
 	
 	/**
 	 * récupère la liste des marchandises d'une cargaison

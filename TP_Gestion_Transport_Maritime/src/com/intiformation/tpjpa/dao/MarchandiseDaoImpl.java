@@ -122,13 +122,15 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 
-		CriteriaQuery<Marchandise> criteriaQuery = cb.createQuery(Marchandise.class);
+		CriteriaQuery<Marchandise> cq = cb.createQuery(Marchandise.class);
 
-		Root<Marchandise> clauseFROM = criteriaQuery.from(Marchandise.class);
+		Root<Marchandise> clauseFROM = cq.from(Marchandise.class);
 
-		CriteriaQuery<Marchandise> clauseSELECT = criteriaQuery.select(clauseFROM);
+		CriteriaQuery<Marchandise> clauseSELECT = cq.select(clauseFROM);
 		
 		Predicate where = cb.equal(clauseFROM.get("cargaison"), cargaison);
+		
+		CriteriaQuery<Marchandise> clauseWhere = cq.where(where);
 
 		TypedQuery<Marchandise> getMarByCarQuery = em.createQuery(clauseSELECT);
 
@@ -153,7 +155,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 	}//end count
 	
 	
-	public double poidsTotal(Long idCargaison) {
+	public double poidsTotal(Cargaison cargaison) {
 	
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -163,7 +165,9 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 		CriteriaQuery<Double> clauseSELECT = cq.select(cb.sum(cb.prod(clauseFROM.get("poids"), clauseFROM.get("quantite"))));
 		
-		Predicate where = cb.equal(clauseFROM.get("cargaison_id"), idCargaison);
+		Predicate where = cb.equal(clauseFROM.get("cargaison"), cargaison);
+		
+		CriteriaQuery<Double> clauseWhere = cq.where(where);
 		
 		Query poidsTotal = em.createQuery(cq);
 		
@@ -171,7 +175,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 	}
 	
 	
-	public double volumeTotal(Long idCargaison) {
+	public double volumeTotal(Cargaison cargaison) {
 		
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -181,7 +185,9 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 		CriteriaQuery<Double> clauseSELECT = cq.select(cb.sum(cb.prod(clauseFROM.get("volume"), clauseFROM.get("quantite"))));
 		
-		Predicate where = cb.equal(clauseFROM.get("cargaison_id"), idCargaison);
+		Predicate where = cb.equal(clauseFROM.get("cargaison"), cargaison);
+		
+		CriteriaQuery<Double> clauseWhere = cq.where(where);
 		
 		Query volumeTotal = em.createQuery(cq);
 		
