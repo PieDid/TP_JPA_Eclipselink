@@ -44,7 +44,7 @@ public abstract class Cargaison implements Serializable{
 	private double distance;
 	
 	@Column(name ="date_livraison")
-	private Date dateLivraison;
+	private String dateLivraison;
 	
 	/*============ Association Cargaison à Marchandise ========*/
 	@OneToMany(mappedBy = "cargaison", cascade = CascadeType.ALL)
@@ -64,7 +64,7 @@ public abstract class Cargaison implements Serializable{
 	 * @param distance
 	 * @param dateLivraison
 	 */
-	public Cargaison(String nomCargaison, double distance, Date dateLivraison) {
+	public Cargaison(String nomCargaison, double distance, String dateLivraison) {
 		super();
 		this.nomCargaison = nomCargaison;
 		this.distance = distance;
@@ -79,7 +79,7 @@ public abstract class Cargaison implements Serializable{
 	 * @param distance
 	 * @param dateLivraison
 	 */
-	public Cargaison(Long idCargaison, String nomCargaison, double distance, Date dateLivraison) {
+	public Cargaison(Long idCargaison, String nomCargaison, double distance, String dateLivraison) {
 		this.idCargaison = idCargaison;
 		this.nomCargaison = nomCargaison;
 		this.distance = distance;
@@ -135,14 +135,14 @@ public abstract class Cargaison implements Serializable{
 	/**
 	 * @return the dateLivraison
 	 */
-	public Date getDateLivraison() {
+	public String getDateLivraison() {
 		return dateLivraison;
 	}
 
 	/**
 	 * @param dateLivraison the dateLivraison to set
 	 */
-	public void setDateLivraison(Date dateLivraison) {
+	public void setDateLivraison(String dateLivraison) {
 		this.dateLivraison = dateLivraison;
 	}
 

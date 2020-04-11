@@ -24,7 +24,7 @@ public class CargaisonAerienne extends Cargaison{
 		super();
 	}
 	
-	public CargaisonAerienne(String nomCargaison, double distance, Date dateLivraison, double poidsMaximal) {
+	public CargaisonAerienne(String nomCargaison, double distance, String dateLivraison, double poidsMaximal) {
 		super(nomCargaison, distance, dateLivraison);
 		this.poidsMaximal = poidsMaximal;
 	}

@@ -31,7 +31,7 @@ public class CargaisonRoutiere extends Cargaison{
 		super();
 	}
 
-	public CargaisonRoutiere(String nomCargaison, double distance, Date dateLivraison, double temperatureConservation) {
+	public CargaisonRoutiere(String nomCargaison, double distance, String dateLivraison, double temperatureConservation) {
 		super(nomCargaison, distance, dateLivraison);
 		this.temperatureConservation = temperatureConservation;
 	}

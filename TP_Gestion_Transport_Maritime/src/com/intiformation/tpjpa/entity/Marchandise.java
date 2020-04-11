@@ -37,7 +37,7 @@ public class Marchandise implements Serializable {
 	/* Association avec Cargaison */
 
 	@ManyToOne
-	@JoinColumn(name = "cargaison_id", referencedColumnName = "idCargaison")
+	@JoinColumn(name = "cargaison_id", referencedColumnName = "id_cargaison")
 	private Cargaison cargaison;
 	
 	/* Constructeurs */
@@ -61,7 +61,16 @@ public class Marchandise implements Serializable {
 		this.quantite = quantite;
 	}
 	
-	
+	public Marchandise(String nom, double poids, double volume, int quantite, Cargaison cargaison) {
+		super();
+		this.nom = nom;
+		this.poids = poids;
+		this.volume = volume;
+		this.quantite = quantite;
+		this.cargaison = cargaison;
+	}
+
+
 	/* Getters et Setters */
 
 	public Long getIdMarchandise() {

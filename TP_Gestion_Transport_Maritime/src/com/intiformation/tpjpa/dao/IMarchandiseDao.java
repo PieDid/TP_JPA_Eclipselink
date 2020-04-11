@@ -2,6 +2,8 @@ package com.intiformation.tpjpa.dao;
 
 import java.util.List;
 
+import com.intiformation.tpjpa.entity.Cargaison;
+
 public interface IMarchandiseDao<Marchandise> {
 	
 
@@ -15,13 +17,15 @@ public interface IMarchandiseDao<Marchandise> {
 
 	public List<Marchandise> getAllMarchandise();
 	
-	public List<Marchandise> getMarchandiseByIdCargaison(Long idCargaison);
+	public List<Marchandise> getMarchandiseByIdCargaison(Cargaison cargaison);
 	
 	public Long countMarchandise();
 	
 	public double poidsTotal(Long idCargaison);
 	
 	public double volumeTotal(Long idCargaison);
+
+	
 	
 	
 }//end interface

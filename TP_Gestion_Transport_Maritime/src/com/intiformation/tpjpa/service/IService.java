@@ -61,7 +61,7 @@ public interface IService {
 	 * @param idCargaison : l'id de la cargaison 
 	 * @return : la liste des marchandise de la cargaison avec l'id idCargaison
 	 */
-	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Long idCargaison);
+	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Cargaison cargaison);
 	
 	// Cargaison
 	

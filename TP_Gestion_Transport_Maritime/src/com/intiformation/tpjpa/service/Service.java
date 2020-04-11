@@ -98,8 +98,8 @@ public class Service implements IService {
 	 * @return : la liste des marchandise de la cargaison avec l'id idCargaison
 	 */
 	@Override
-	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Long idCargaison) {
-		return marchandiseDao.getMarchandiseByIdCargaison(idCargaison);
+	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Cargaison cargaison) {
+		return marchandiseDao.getMarchandiseByIdCargaison(cargaison);
 	}
 	
 	/////////////////////// CARGAISONS //////////////////////////

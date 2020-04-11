@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import com.intiformation.tpjpa.entity.Cargaison;
 import com.intiformation.tpjpa.entity.Marchandise;
 import com.intiformation.tpjpa.tool.JpaUtil;
 
@@ -117,7 +118,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 	}//end GetAll
 
 	@Override
-	public List<Marchandise> getMarchandiseByIdCargaison(Long idCargaison) {
+	public List<Marchandise> getMarchandiseByIdCargaison(Cargaison cargaison) {
 		
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -127,7 +128,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 
 		CriteriaQuery<Marchandise> clauseSELECT = criteriaQuery.select(clauseFROM);
 		
-		Predicate where = cb.equal(clauseFROM.get("cargaison_id"), idCargaison);
+		Predicate where = cb.equal(clauseFROM.get("cargaison"), cargaison);
 
 		TypedQuery<Marchandise> getMarByCarQuery = em.createQuery(clauseSELECT);
 
@@ -160,7 +161,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 		Root<Marchandise> clauseFROM = cq.from(Marchandise.class);
 		
-		CriteriaQuery<Double> clauseSELECT = (CriteriaQuery<Double>) cb.selectCase(cb.sum(cb.prod(clauseFROM.get("poids"), clauseFROM.get("quantite"))));
+		CriteriaQuery<Double> clauseSELECT = cq.select(cb.sum(cb.prod(clauseFROM.get("poids"), clauseFROM.get("quantite"))));
 		
 		Predicate where = cb.equal(clauseFROM.get("cargaison_id"), idCargaison);
 		
@@ -178,7 +179,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 		Root<Marchandise> clauseFROM = cq.from(Marchandise.class);
 		
-		CriteriaQuery<Double> clauseSELECT = (CriteriaQuery<Double>) cb.selectCase(cb.sum(cb.prod(clauseFROM.get("volume"), clauseFROM.get("quantite"))));
+		CriteriaQuery<Double> clauseSELECT = cq.select(cb.sum(cb.prod(clauseFROM.get("volume"), clauseFROM.get("quantite"))));
 		
 		Predicate where = cb.equal(clauseFROM.get("cargaison_id"), idCargaison);
 		
