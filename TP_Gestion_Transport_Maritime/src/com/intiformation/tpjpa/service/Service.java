@@ -79,8 +79,7 @@ public class Service implements IService {
 	 */
 	@Override
 	public double poidsTotal(Long idCargaison) {
-		// TODO Auto-generated method stub
-		return 0;
+		return marchandiseDao.poidsTotal(idCargaison);
 	}
 	
 	/**
@@ -90,8 +89,7 @@ public class Service implements IService {
 	 */
 	@Override
 	public double volumeTotal(Long idCargaison) {
-		// TODO Auto-generated method stub
-		return 0;
+		return marchandiseDao.volumeTotal(idCargaison);
 	}
 	
 	/**

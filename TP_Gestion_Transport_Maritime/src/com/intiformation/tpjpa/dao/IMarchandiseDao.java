@@ -15,9 +15,13 @@ public interface IMarchandiseDao<Marchandise> {
 
 	public List<Marchandise> getAllMarchandise();
 	
-	public List<Marchandise> getMarchandiseByIdCargaison();
+	public List<Marchandise> getMarchandiseByIdCargaison(Long idCargaison);
 	
 	public Long countMarchandise();
+	
+	public double poidsTotal(Long idCargaison);
+	
+	public double volumeTotal(Long idCargaison);
 	
 	
 }//end interface

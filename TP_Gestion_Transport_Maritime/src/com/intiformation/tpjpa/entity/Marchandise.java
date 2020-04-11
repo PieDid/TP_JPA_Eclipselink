@@ -26,10 +26,13 @@ public class Marchandise implements Serializable {
 	private String nom;
 	
 	@Column(name="poids")
-	private String poids;
+	private double poids;
 	
 	@Column(name="volume")
-	private String volume;
+	private double volume;
+	
+	@Column(name="quantité")
+	private int quantite;
 	
 	/* Association avec Cargaison */
 
@@ -42,17 +45,20 @@ public class Marchandise implements Serializable {
 	public Marchandise() {
 	}
 
-	public Marchandise(String nom, String poids, String volume) {
+
+	public Marchandise(String nom, double poids, double volume, int quantite) {
 		this.nom = nom;
 		this.poids = poids;
 		this.volume = volume;
+		this.quantite = quantite;
 	}
 
-	public Marchandise(Long idMarchandise, String nom, String poids, String volume) {
+	public Marchandise(Long idMarchandise, String nom, double poids, double volume, int quantite) {
 		this.idMarchandise = idMarchandise;
 		this.nom = nom;
 		this.poids = poids;
 		this.volume = volume;
+		this.quantite = quantite;
 	}
 	
 	
@@ -74,19 +80,19 @@ public class Marchandise implements Serializable {
 		this.nom = nom;
 	}
 
-	public String getPoids() {
+	public double getPoids() {
 		return poids;
 	}
 
-	public void setPoids(String poids) {
+	public void setPoids(double poids) {
 		this.poids = poids;
 	}
 
-	public String getVolume() {
+	public double getVolume() {
 		return volume;
 	}
 
-	public void setVolume(String volume) {
+	public void setVolume(double volume) {
 		this.volume = volume;
 	}
 	
