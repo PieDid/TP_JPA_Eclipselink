@@ -14,9 +14,6 @@ public class CargaisonAerienne extends Cargaison{
 	
 	@Column(name = "poids_maximal")
 	private double poidsMaximal;
-
-	
-
 	
 	/*_________________ ctors ________________*/
 	

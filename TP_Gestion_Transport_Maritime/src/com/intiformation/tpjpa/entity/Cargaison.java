@@ -32,7 +32,7 @@ public abstract class Cargaison implements Serializable{
 	@Id
 	@Column(name = "id_cargaison")
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
-	private int idCargaison;
+	private Long idCargaison;
 	
 	@Column(name = "nom_cargaison")
 	private String nomCargaison;
@@ -75,7 +75,7 @@ public abstract class Cargaison implements Serializable{
 	 * @param distance
 	 * @param dateLivraison
 	 */
-	public Cargaison(int idCargaison, String nomCargaison, double distance, Date dateLivraison) {
+	public Cargaison(Long idCargaison, String nomCargaison, double distance, Date dateLivraison) {
 		this.idCargaison = idCargaison;
 		this.nomCargaison = nomCargaison;
 		this.distance = distance;
@@ -89,14 +89,14 @@ public abstract class Cargaison implements Serializable{
 	/**
 	 * @return the idCargaison
 	 */
-	public int getIdCargaison() {
+	public Long getIdCargaison() {
 		return idCargaison;
 	}
 
 	/**
 	 * @param idCargaison the idCargaison to set
 	 */
-	public void setIdCargaison(int idCargaison) {
+	public void setIdCargaison(Long idCargaison) {
 		this.idCargaison = idCargaison;
 	}
 
