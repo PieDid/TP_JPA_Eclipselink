@@ -37,7 +37,6 @@ public class Marchandise implements Serializable {
 	@JoinColumn(name = "cargaison_id", referencedColumnName = "idCargaison")
 	private Cargaison cargaison;
 	
-	
 	/* Constructeurs */
 
 	public Marchandise() {

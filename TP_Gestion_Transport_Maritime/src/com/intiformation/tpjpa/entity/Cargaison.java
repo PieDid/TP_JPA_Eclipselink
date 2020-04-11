@@ -2,7 +2,9 @@ package com.intiformation.tpjpa.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -42,7 +45,10 @@ public abstract class Cargaison implements Serializable{
 	
 	@Column(name ="date_livraison")
 	private Date dateLivraison;
-
+	
+	/*============ Association Cargaison à Marchandise ========*/
+	@OneToMany(mappedBy = "cargaison", cascade = CascadeType.ALL)
+	private List<Marchandise> listeMarchandise;
 	
 	/*_________________ ctors ________________*/
 
@@ -51,8 +57,6 @@ public abstract class Cargaison implements Serializable{
 	 */
 	public Cargaison() {
 	}
-	
-	
 	
 	/**
 	 * ctor sans PK
@@ -140,6 +144,20 @@ public abstract class Cargaison implements Serializable{
 	 */
 	public void setDateLivraison(Date dateLivraison) {
 		this.dateLivraison = dateLivraison;
+	}
+
+	/**
+	 * @return the listeMarchandise
+	 */
+	public List<Marchandise> getListeMarchandise() {
+		return listeMarchandise;
+	}
+
+	/**
+	 * @param listeMarchandise the listeMarchandise to set
+	 */
+	public void setListeMarchandise(List<Marchandise> listeMarchandise) {
+		this.listeMarchandise = listeMarchandise;
 	}
 	
 }
