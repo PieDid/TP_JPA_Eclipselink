@@ -10,25 +10,33 @@ import com.intiformation.tpjpa.entity.Cargaison;
 import com.intiformation.tpjpa.entity.CargaisonAerienne;
 import com.intiformation.tpjpa.entity.CargaisonRoutiere;
 import com.intiformation.tpjpa.entity.Marchandise;
+import com.intiformation.tpjpa.entity.Utilisateur;
 import com.intiformation.tpjpa.service.Service;
 
 public class AppTestGestionCargaison {
 
 	public static void main(String[] args) {
 
-
+		// Appel de la couche service
 		Service service = new Service();
 		
+		//1.1. Instance des utilisateurs à ajouter
+		Utilisateur u1 = new Utilisateur("Harvey", "Cecil", "cecil.harvay@redwings.br", "TuEstMonFrere!");
+		Utilisateur u2 = new Utilisateur("Highwind", "Kain", "kain.highwind@dragon.br", "Bipolaire!");
 		
-		// 1. Instance de l'enseignant à ajouter
+		// 1.2. Instances des cargaisons à ajouter
 		Cargaison car1 = new CargaisonAerienne ("Aero1", 140, "2020-05-15", 10000);
 		Cargaison car2 = new CargaisonRoutiere ("Road1", 75, "2020-05-24", 4);
 		
+		//1.3. Instance des marchandises
 		Marchandise mar1 = new Marchandise ("Pomme", 1, 2, 3, car1);
 		Marchandise mar2 = new Marchandise ("Poele", 2, 5, 1, car1);
 		Marchandise mar3 = new Marchandise ("Fraise", 1, 1, 10, car2);
 
-		// 2. Récupération d'une EntityManager
+		// test d'ajout
+		service.ajouterUtilisateur(u1);
+		service.ajouterUtilisateur(u2);
+		
 
 		service.ajouterCargaisonAerienne((CargaisonAerienne) car1);
 		service.ajouterCargaisonRoutiere((CargaisonRoutiere) car2);
@@ -37,6 +45,21 @@ public class AppTestGestionCargaison {
 		service.ajouterMarchandise(mar2);
 		service.ajouterMarchandise(mar3);
 		
+		
+		// test d'existence des utilisateurs
+		System.out.println("u1 existe :" + service.utilisateurExiste("cecil.harvay@redwings.br","TuEstMonFrere!"));
+		System.out.println("u2 existe :" + service.utilisateurExiste("kain.highwind@dragon.br","Bipolaire!"));
+		System.out.println("u3 existe :" + service.utilisateurExiste("rosa.farell@mageblanche.br","JeTaimeMoiNonPlus!"));
+		
+		// test de récupération des utilisateur par id et par mail
+		Utilisateur urecup1 = service.recupererUtilisateurParId(1L);
+		Utilisateur urecup2 = service.recupererUtilisateurParMail("kain.highwind@dragon.br");
+		
+		System.out.println("u1 :" + urecup1);
+		System.out.println("u2 :" + urecup2);
+		
+		
+		// test de récupération des cargaisons et des marchandises
 		List<Cargaison> listeCargaison = service.recupererToutesCargaisons();
 		System.out.println("Liste des cargaisons (API Criteria) ------------------------------------------------");
 		for (Cargaison car : listeCargaison) {
@@ -68,7 +91,7 @@ public class AppTestGestionCargaison {
 		}
 		System.out.println("-------------------------------------------------------------------------------------\n\n");
 		
-		
+		// test de récupération des poids et volumes total des marchandises des cargasons, et du cout de la cargaison
 		double poids1 = service.poidsTotal(car1);
 		System.out.println("Poids de la cargaison 1 : " + poids1); 
 		

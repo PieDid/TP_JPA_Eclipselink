@@ -6,10 +6,41 @@ import com.intiformation.tpjpa.entity.Cargaison;
 import com.intiformation.tpjpa.entity.CargaisonAerienne;
 import com.intiformation.tpjpa.entity.CargaisonRoutiere;
 import com.intiformation.tpjpa.entity.Marchandise;
+import com.intiformation.tpjpa.entity.Utilisateur;
 
 public interface IService {
 	
-	// Marchandise
+	/////////////////////// UTILISATEUR //////////////////////////
+	
+	/**
+	 * Permet d'ajouter un utilisateur
+	 * @param utilisateur : l'utilisateur à ajouter
+	 */
+	public void ajouterUtilisateur(Utilisateur utilisateur);
+	
+	/**
+	 * vérifie l'existence de l'utilisateur dans la BDD via son mail et son mdp
+	 * @param mail : le mail de l'utilisateur dont il faut verifier l'existence
+	 * @param mdp : le mdp de l'utilisateur dont il faut verifier l'existence
+	 * @return : true si il existe, false sinon
+	 */
+	public boolean utilisateurExiste(String mail, String mdp);
+	
+	/**
+	 * recupere l'utisisateur via son id
+	 * @param idUtilisateur : l'id de l'utilisateur à retrouver
+	 * @return : l'utilisateur possedant l'id idUtilisateur
+	 */
+	public Utilisateur recupererUtilisateurParId(Long idUtilisateur);
+	
+	/**
+	 * recupere l'utisisateur via son mail
+	 * @param mail : le mail de l'utilisateur à retrouver
+	 * @return : l'utilisateur possedant le mail donné
+	 */
+	public Utilisateur recupererUtilisateurParMail(String mail);
+	
+	/////////////////////// MARCHANDISES //////////////////////////
 	
 	/**
 	 * ajoute une marchandise
@@ -63,7 +94,7 @@ public interface IService {
 	 */
 	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Cargaison cargaison);
 	
-	// Cargaison
+	/////////////////////// CARGAISONS //////////////////////////
 	
 	/**
 	 * ajoute une cargaison aerienne

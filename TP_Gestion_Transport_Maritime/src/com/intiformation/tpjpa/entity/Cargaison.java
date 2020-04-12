@@ -87,8 +87,16 @@ public abstract class Cargaison implements Serializable{
 	}
 
 	/*_________________ meths ________________*/
+	
+	@Override
+	public String toString() {
+		return " [idCargaison=" + idCargaison + ", nomCargaison=" + nomCargaison + ", distance=" + distance
+				+ ", dateLivraison=" + dateLivraison + ", listeMarchandise=" + listeMarchandise + "]";
+	}
 
 	/*__________________ G/S _________________*/
+
+	
 
 	/**
 	 * @return the idCargaison

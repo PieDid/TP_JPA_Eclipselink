@@ -7,16 +7,20 @@ import com.intiformation.tpjpa.dao.CargaisonDaoImpl;
 import com.intiformation.tpjpa.dao.CargaisonRoutiereDaoImpl;
 import com.intiformation.tpjpa.dao.ICargaisonDao;
 import com.intiformation.tpjpa.dao.IMarchandiseDao;
+import com.intiformation.tpjpa.dao.IUtilisateurDao;
 import com.intiformation.tpjpa.dao.MarchandiseDaoImpl;
+import com.intiformation.tpjpa.dao.UtilisateurDaoImpl;
 import com.intiformation.tpjpa.entity.Cargaison;
 import com.intiformation.tpjpa.entity.CargaisonAerienne;
 import com.intiformation.tpjpa.entity.CargaisonRoutiere;
 import com.intiformation.tpjpa.entity.Marchandise;
+import com.intiformation.tpjpa.entity.Utilisateur;
 
 public class Service implements IService {
 
 	/* ___________________ DAOs _____________________________ */
 	
+	IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
 	IMarchandiseDao<Marchandise> marchandiseDao = new MarchandiseDaoImpl();
 	ICargaisonDao cargaisonDao = new CargaisonDaoImpl();
 	CargaisonAerienneDaoImpl cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
@@ -24,6 +28,48 @@ public class Service implements IService {
 	
 	/* ___________________ Méthodes _____________________________ */
 
+	/////////////////////// UTILISATEUR //////////////////////////
+	
+	/**
+	 * Permet d'ajouter un utilisateur
+	 * @param utilisateur : l'utilisateur à ajouter
+	 */
+	@Override
+	public void ajouterUtilisateur(Utilisateur utilisateur) {
+		utilisateurDao.addUtilisateur(utilisateur);
+	}
+	
+	/**
+	 * vérifie l'existence de l'utilisateur dans la BDD via son mail et son mdp
+	 * @param mail : le mail de l'utilisateur dont il faut verifier l'existence
+	 * @param mdp : le mdp de l'utilisateur dont il faut verifier l'existence
+	 * @return : true si il existe, false sinon
+	 */
+	@Override
+	public boolean utilisateurExiste(String mail, String mdp) {
+		return utilisateurDao.isUtilisateurExists(mail, mdp);
+	}
+
+	/**
+	 * recupere l'utisisateur via son id
+	 * @param idUtilisateur : l'id de l'utilisateur à retrouver
+	 * @return : l'utilisateur possedant l'id idUtilisateur
+	 */
+	@Override
+	public Utilisateur recupererUtilisateurParId(Long idUtilisateur) {
+		return utilisateurDao.getUtilisateurById(idUtilisateur);
+	}
+
+	/**
+	 * recupere l'utisisateur via son mail
+	 * @param mail : le mail de l'utilisateur à retrouver
+	 * @return : l'utilisateur possedant le mail donné
+	 */
+	@Override
+	public Utilisateur recupererUtilisateurParMail(String mail) {
+		return utilisateurDao.getUtilisateurByMail(mail);
+	}
+	
 	/////////////////////// MARCHANDISES //////////////////////////
 	
 	/**
@@ -215,5 +261,6 @@ public class Service implements IService {
 		return cout;
 	}
 
+	
 
 }

@@ -37,8 +37,15 @@ public class CargaisonRoutiere extends Cargaison{
 	}
 
 	/*_________________ meths ________________*/
+	
+	@Override
+	public String toString() {
+		return "CargaisonRoutiere [ "+ super.toString() + ", temperatureConservation=" + temperatureConservation + "]";
+	}
+
 
 	/*__________________ G/S _________________*/
+	
 	
 	/**
 	 * @return the temperatureConservation

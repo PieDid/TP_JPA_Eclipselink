@@ -8,6 +8,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 			
 		<!-- 2. Déclaration des classes entités -->
+		<class>com.intiformation.tpjpa.entity.Utilisateur</class>	
 		<class>com.intiformation.tpjpa.entity.Marchandise</class>	
 		<class>com.intiformation.tpjpa.entity.Cargaison</class>
 		<class>com.intiformation.tpjpa.entity.CargaisonRoutiere</class>

@@ -31,6 +31,12 @@ public class CargaisonAerienne extends Cargaison{
 
 	/*_________________ meths ________________*/
 
+	@Override
+	public String toString() {
+		return "CargaisonAerienne [ "+super.toString() + ", poidsMaximal=" + poidsMaximal + "]";
+	}
+
+	
 	/*__________________ G/S _________________*/
 	
 	/**
@@ -40,6 +46,7 @@ public class CargaisonAerienne extends Cargaison{
 		return poidsMaximal;
 	}
 
+	
 	/**
 	 * @param poidsMaximal the poidsMaximal to set
 	 */
