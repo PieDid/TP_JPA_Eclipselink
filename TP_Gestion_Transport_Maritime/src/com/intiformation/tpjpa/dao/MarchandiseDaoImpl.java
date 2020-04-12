@@ -19,9 +19,12 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 
 	
-	protected EntityManager em = JpaUtil.getEntityManager();
+	protected EntityManager em = null;
 	
-	
+	public MarchandiseDaoImpl() {
+		// récupération de l'EM
+		em = JpaUtil.getEntityManager();
+	}
 	
 	@Override
 	public void addMarchandise(Marchandise marchandise) {

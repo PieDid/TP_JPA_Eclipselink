@@ -14,8 +14,13 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 
 public class CargaisonDaoImpl implements ICargaisonDao {
 
-	// récupération de l'EM
-	protected EntityManager em = JpaUtil.getEntityManager();
+	protected EntityManager em = null;
+	
+	/*ctor*/
+	public CargaisonDaoImpl() {
+		// récupération de l'EM
+		em = JpaUtil.getEntityManager();
+	}
 	
 	@Override
 	public void deleteCargaison(Long idCargaison) {

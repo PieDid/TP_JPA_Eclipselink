@@ -9,9 +9,13 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 
 public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 	
-	// récupération de l'EM
-	protected EntityManager em = JpaUtil.getEntityManager();
+	protected EntityManager em = null;
 	
+	/*ctor*/
+	public CargaisonRoutiereDaoImpl() {
+		// récupération de l'EM
+		em = JpaUtil.getEntityManager();
+	}
 	public void addCargaisonRoutiere(CargaisonRoutiere cargaisonRoutiere) {
 		
 		EntityTransaction tx = null;

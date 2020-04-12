@@ -16,19 +16,11 @@
 <body class="bodyAuthentification"> 
 
 	<!-- ======================================================== -->
-	<!-- ========== Affichage des messages globaux  ============= -->
-	<!-- ======================================================== -->
-	
-	
-
-	<!-- ======================================================== -->
 	<!-- ============= Formulaire de connexion ================== -->
 	<!-- ======================================================== -->
 	
-	
-	
 	<div class="formulaire">
-	<h:graphicImage library="images" name="authentification.png" width="100%"/> 
+	<!--  <h:graphicImage library="images" name="authentification.png" width="100%"/> -->
 	<h:form class = "formAuthentification">
 		
 		<h:panelGrid columns="3" cellpadding="1" cellspacing="2" width="100%">
@@ -36,10 +28,7 @@
 			<f:facet name="header">
 				<div class="titreForm">Formulaire de connexion</div>
 			</f:facet>
-			
-   			
-			
-		
+
 			 <p:outputLabel styleClass="text" for="idLogin" value="e-mail : " />
     		  <p:inputText id="idLogin" required="true" 
 						 requiredMessage="e-mail obligatoire !" value="#{authentificationBean.mail}" />
@@ -56,6 +45,10 @@
 			 <b:commandButton value="Se connecter" action="#{authentificationBean.connecter()}" look="info" style="width:100%; margin-top:10px;"/>
 			</f:facet>
 		
+	<!-- ======================================================== -->
+	<!-- ========== Affichage des messages globaux  ============= -->
+	<!-- ======================================================== -->
+
 		</h:panelGrid>
 		<h:messages globalOnly="true" styleClass="error" layout="table" showDetail="true"/>
 	</h:form>

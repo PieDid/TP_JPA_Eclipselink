@@ -8,8 +8,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import com.intiformation.tpjpa.dao.IUtilisateurDao;
-import com.intiformation.tpjpa.dao.UtilisateurDaoImpl;
 import com.intiformation.tpjpa.entity.Utilisateur;
 import com.intiformation.tpjpa.service.IService;
 import com.intiformation.tpjpa.service.Service;

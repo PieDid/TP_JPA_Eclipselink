@@ -5,9 +5,11 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
 public class JpaUtil {
-	
+
 	private static EntityManager em;
 
+	private JpaUtil() {
+	}
 
 	public static EntityManager getEntityManager() {
 
@@ -15,8 +17,8 @@ public class JpaUtil {
 
 			try {
 
-				em = Persistence.createEntityManagerFactory("pu_TP_JPA")
-						                   .createEntityManager();
+				em = Persistence.createEntityManagerFactory("pu_TP_JPA").createEntityManager();
+				System.out.println("La recuperation de l'em a réussie");
 
 			} catch (PersistenceException e) {
 				System.out.println("La récupération de l'Entity Manager à échouée");
@@ -27,6 +29,6 @@ public class JpaUtil {
 
 		return em;
 
-}
-	
-}//end class
+	}
+
+}// end class

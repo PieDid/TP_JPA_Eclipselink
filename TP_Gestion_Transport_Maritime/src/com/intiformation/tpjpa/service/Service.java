@@ -20,11 +20,24 @@ public class Service implements IService {
 
 	/* ___________________ DAOs _____________________________ */
 	
-	IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
-	IMarchandiseDao<Marchandise> marchandiseDao = new MarchandiseDaoImpl();
-	ICargaisonDao cargaisonDao = new CargaisonDaoImpl();
-	CargaisonAerienneDaoImpl cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
-	CargaisonRoutiereDaoImpl CargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
+	IUtilisateurDao utilisateurDao = null;
+	IMarchandiseDao<Marchandise> marchandiseDao = null; 
+	ICargaisonDao cargaisonDao = null;
+	CargaisonAerienneDaoImpl cargaisonAerienneDao = null;
+	CargaisonRoutiereDaoImpl CargaisonRoutiereDao = null;
+	
+	/*_____________________ ctors ______________________________*/
+	
+	/**
+	 * ctor de service
+	 */
+	public Service() {
+		utilisateurDao =  new UtilisateurDaoImpl();
+		marchandiseDao = new MarchandiseDaoImpl();
+		cargaisonDao = new CargaisonDaoImpl();
+		cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
+		CargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
+	}
 	
 	/* ___________________ Méthodes _____________________________ */
 
@@ -39,6 +52,8 @@ public class Service implements IService {
 		utilisateurDao.addUtilisateur(utilisateur);
 	}
 	
+	
+
 	/**
 	 * vérifie l'existence de l'utilisateur dans la BDD via son mail et son mdp
 	 * @param mail : le mail de l'utilisateur dont il faut verifier l'existence

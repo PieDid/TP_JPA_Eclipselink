@@ -20,8 +20,13 @@ import com.intiformation.tpjpa.tool.JpaUtil;
  */
 public class UtilisateurDaoImpl implements IUtilisateurDao{
 
-	// récupération de l'EM
-	protected EntityManager em = JpaUtil.getEntityManager();
+	protected EntityManager em = null;
+	
+	/*ctor*/
+	public UtilisateurDaoImpl() {
+		// récupération de l'EM
+		em = JpaUtil.getEntityManager();
+	}
 	
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) {
