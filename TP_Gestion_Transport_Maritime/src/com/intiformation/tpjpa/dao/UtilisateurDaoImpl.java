@@ -24,8 +24,10 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 	
 	/*ctor*/
 	public UtilisateurDaoImpl() {
+		System.out.println("Utilisateur Dao ctor avant");
 		// récupération de l'EM
 		em = JpaUtil.getEntityManager();
+		System.out.println("Utilisateur Dao ctor apres");
 	}
 	
 	@Override
@@ -47,6 +49,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 				ex.printStackTrace();
 			}
 
+		} finally {
+			em.close();
 		}
 		
 	}
@@ -69,6 +73,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 		} catch (PersistenceException e) {
 			System.out.println("... Erreur lors de la vérif de l'existance de l'utilisateur ....");
 			e.printStackTrace();
+		} finally {
+			em.close();
 		}
 		
 		return false;

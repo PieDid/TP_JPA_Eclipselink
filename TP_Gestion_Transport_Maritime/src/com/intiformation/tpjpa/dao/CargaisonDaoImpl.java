@@ -46,6 +46,8 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 			}
 			System.out.println("... Erreur dans la suppression d'une Cargaison ...");
 			e.printStackTrace();
+		}finally {
+			em.close();
 		}
 		
 	} // end deleteCargaison()

@@ -8,25 +8,24 @@ public class JpaUtil {
 
 	private static EntityManager em;
 
-	private JpaUtil() {
-	}
+	/**
+	 * ctor prive
+	 */
+	private JpaUtil() {}
 
 	public static EntityManager getEntityManager() {
 
 		if (em == null) {
 
-			try {
-
-				em = Persistence.createEntityManagerFactory("pu_TP_JPA").createEntityManager();
+			try {	
+				em = Persistence.createEntityManagerFactory("pu_tp_jpa").createEntityManager();
 				System.out.println("La recuperation de l'em a réussie");
-
 			} catch (PersistenceException e) {
-				System.out.println("La récupération de l'Entity Manager à échouée");
+				System.out.println("La récupération de l'em à échouée");
 				e.printStackTrace();
 			}
 
 		} // end if
-
 		return em;
 
 	}

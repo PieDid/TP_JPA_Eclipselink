@@ -24,7 +24,7 @@ public class Service implements IService {
 	IMarchandiseDao<Marchandise> marchandiseDao = null; 
 	ICargaisonDao cargaisonDao = null;
 	CargaisonAerienneDaoImpl cargaisonAerienneDao = null;
-	CargaisonRoutiereDaoImpl CargaisonRoutiereDao = null;
+	CargaisonRoutiereDaoImpl cargaisonRoutiereDao = null;
 	
 	/*_____________________ ctors ______________________________*/
 	
@@ -32,11 +32,11 @@ public class Service implements IService {
 	 * ctor de service
 	 */
 	public Service() {
-		utilisateurDao =  new UtilisateurDaoImpl();
-		marchandiseDao = new MarchandiseDaoImpl();
-		cargaisonDao = new CargaisonDaoImpl();
-		cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
-		CargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
+		this.utilisateurDao =  new UtilisateurDaoImpl();
+		this.marchandiseDao = new MarchandiseDaoImpl();
+		this.cargaisonDao = new CargaisonDaoImpl();
+		this.cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
+		this.cargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
 	}
 	
 	/* ___________________ Méthodes _____________________________ */
@@ -189,7 +189,7 @@ public class Service implements IService {
 	 */
 	@Override
 	public void ajouterCargaisonRoutiere(CargaisonRoutiere cargaisonRoutiere) {
-		CargaisonRoutiereDao.addCargaisonRoutiere(cargaisonRoutiere);
+		cargaisonRoutiereDao.addCargaisonRoutiere(cargaisonRoutiere);
 	}
 	
 	/**
@@ -198,7 +198,7 @@ public class Service implements IService {
 	 */
 	@Override
 	public void modifierCargaisonRoutiere(CargaisonRoutiere cargaisonRoutiere) {
-		CargaisonRoutiereDao.updateCargaisonRoutiere(cargaisonRoutiere);
+		cargaisonRoutiereDao.updateCargaisonRoutiere(cargaisonRoutiere);
 	}
 	
 	/**

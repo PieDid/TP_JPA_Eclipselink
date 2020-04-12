@@ -104,7 +104,6 @@ public class AppTestGestionCargaison {
 		
 		double cout2 = service.coutCargaison(2L);
 		System.out.println("Cout de la cargaison 2 : " + cout2); 
-		
 
 	}//end main
 

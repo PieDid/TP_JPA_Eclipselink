@@ -42,6 +42,8 @@ public class CargaisonAerienneDaoImpl extends CargaisonDaoImpl{
 					ex.printStackTrace();
 				}
 	
+			}finally {
+				em.close();
 			}
 	
 		}
@@ -70,6 +72,8 @@ public class CargaisonAerienneDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
+		}finally {
+			em.close();
 		}
 
 	}

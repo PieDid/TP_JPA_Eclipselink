@@ -25,16 +25,8 @@ public class AuthentificationBean implements Serializable {
 	private String mdp;
 	private Utilisateur utilisateurSession;
 	// la couche service
-	public IService service;
-
-	/* _______________________ ctors ___________________________ */
-
-	/**
-	 * ctor vide qui initialise la DAO
-	 */
-	public AuthentificationBean() {
-		this.service = new Service();
-	}
+	public IService service = new Service();
+	
 	/* ______________________ méthodes _________________________ */
 
 	/**
@@ -43,7 +35,7 @@ public class AuthentificationBean implements Serializable {
 	 * @return
 	 */
 	public String connecter() {
-
+		
 		// context de JSF pour récupérer la session, la créer et envoyer des messages
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
 

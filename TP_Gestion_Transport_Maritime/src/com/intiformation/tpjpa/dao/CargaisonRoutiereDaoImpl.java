@@ -16,6 +16,7 @@ public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 		// récupération de l'EM
 		em = JpaUtil.getEntityManager();
 	}
+	
 	public void addCargaisonRoutiere(CargaisonRoutiere cargaisonRoutiere) {
 		
 		EntityTransaction tx = null;
@@ -40,6 +41,8 @@ public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
+		}finally {
+			em.close();
 		}
 	
 	}
@@ -68,6 +71,8 @@ public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
+		}finally {
+			em.close();
 		}
 	
 	
