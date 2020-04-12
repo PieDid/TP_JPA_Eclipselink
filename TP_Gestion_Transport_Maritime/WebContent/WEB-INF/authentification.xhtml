@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"> 
+
+<h:head>
+	<title>Page d'authentification</title>
+	
+	<!-- Insertion du style css -->
+	<h:outputStylesheet library="styles" name="StyleAuthentification.css"/>
+	
+</h:head> 
+<body class="bodyAuthentification"> 
+
+	<!-- ======================================================== -->
+	<!-- ========== Affichage des messages globaux  ============= -->
+	<!-- ======================================================== -->
+	
+	
+
+	<!-- ======================================================== -->
+	<!-- ============= Formulaire de connexion ================== -->
+	<!-- ======================================================== -->
+	
+	
+	
+	<div class="formulaire">
+	<h:graphicImage library="images" name="authentification.png" width="100%"/> 
+	<h:form class = "formAuthentification">
+		
+		<h:panelGrid columns="3" cellpadding="1" cellspacing="2" width="100%">
+		
+			<f:facet name="header">
+				<div class="titreForm">Formulaire de connexion</div>
+			</f:facet>
+			
+   			
+			
+		
+			 <p:outputLabel styleClass="text" for="idLogin" value="e-mail : " />
+    		  <p:inputText id="idLogin" required="true" 
+						 requiredMessage="e-mail obligatoire !" value="#{authentificationBean.mail}" />
+			<h:message for="idLogin" styleClass="error"/>
+			
+			
+			<p:outputLabel styleClass="text" for="idPwd" value="Mot de passe : " />
+			<p:password id="idPwd"  required="true" 
+						 requiredMessage="Mot de passe obligatoire !"
+						 value="#{authentificationBean.mdp}"/>
+			<h:message for="idPwd" styleClass="error"/>
+		
+			<f:facet name="footer">
+			 <b:commandButton value="Se connecter" action="#{authentificationBean.connecter()}" look="info" style="width:100%; margin-top:10px;"/>
+			</f:facet>
+		
+		</h:panelGrid>
+		<h:messages globalOnly="true" styleClass="error" layout="table" showDetail="true"/>
+	</h:form>
+	</div>	
+	
+</body> 
+</html>
