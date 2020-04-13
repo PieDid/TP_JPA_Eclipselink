@@ -1,11 +1,174 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:b="http://bootsfaces.net/ui">
+>
 
-<h:head></h:head> 
-<body> 
+<h:head>
 
-</body> 
+	<title>Page de gestion des clients</title>
+	<h:outputScript library="scripts" name="jquery-3.4.1.js" />
+	<h:outputScript library="scripts" name="monScript.js" />
+
+</h:head>
+<body>
+
+	<ui:define name="content">
+		<div style="margin: auto; width: 80%;">
+
+			<!-- ======================================================= -->
+			<!-- =============== Affichage des messages ================ -->
+			<!-- ======================================================= -->
+			<br />
+			<h:messages globalOnly="true" showDetail="true"
+				infoStyle="color:green;" fatalStyle="color:red;" />
+
+
+			<!-- =============================================================== -->
+			<!-- ======== Affichage de tous des clients dans la bdd ========= -->
+			<!-- =============================================================== -->
+
+			<div id="ListeMarchandise" style="display: none;">
+				<h2>
+					Liste de toutes les Marchandises disponibles <br /> <br />
+				</h2>
+
+				<h:form style="text-align: left;">
+					<h:dataTable class="table table-striped"
+						value="#{gestionMarchandise.getAllMarchandise}" var="marchandise"
+						width="100%">
+
+
+						<h:column>
+							<!-- en-tête de la colonne -->
+							<f:facet name="header">
+								<h:outputText value="N° Marchandise" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{marchandise.idMarchandise}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nom" />
+							</f:facet>
+							<h:outputText value="#{marchandise.nom}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Poids unitaire" />
+							</f:facet>
+							<h:outputText value="#{marchandise.poids}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Volume unitaire" />
+							</f:facet>
+							<h:outputText value="#{marchandise.volume}" />
+						</h:column>
+
+
+						<!-- Colonne pour modifier la marchandise -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la modification -->
+							<!-- 
+						attribut du lien h:commandLink:
+							- action : clé d'outcom pour la navigation (ref faces-config.xml)
+							- actionListener : méthode à invoquer dans le managedBean
+				 -->
+							<h:commandLink id="update" action="updateMarchandise"
+								actionListener="#{gestionMarchandise.getById}">
+
+								<!-- passage de paramètre au composant : nom updateID / valeur = l'id de la marchandise -->
+								<f:param id="updateID" name="id"
+									value="#{marchandise.idMarchandise}" />
+
+								<!-- Label du lien -->
+								<h:outputText value="Modifier" />
+
+							</h:commandLink>
+						</h:column>
+
+						<!-- Colonne pour supprimer la marchandise -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la suppression -->
+
+							<h:commandLink id="delete" action="listeMarchandise"
+								actionListener="#{gestioMarchandise.deleteMarchandise}">
+
+								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
+								<f:param id="deleteID" name="id"
+									value="#{marchandise.idMarchandise}" />
+
+								<!-- Label du lien -->
+								<h:outputText value="Supprimer" />
+
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+			
+			
+
+
+			<!-- ================================================================= -->
+			<!-- ============= Bouton pour ajouter une Marchandise =============== -->
+			<!-- ================================================================= -->
+
+
+			<div style="text-align: center;">
+				<h:commandButton class="btn btn-success btn-lg"
+					action="addMarchandise"
+					actionListener="#{gestionMarchandise.initMarchandise}"
+					value="Ajouter une nouvelle Marchandise" />
+			</div>
+
+
+			
+
+
+
+			<!-- ================================================================= -->
+			<!-- ============= Bouton pour ajouter des Cargaisons =============== -->
+			<!-- ================================================================= -->
+
+
+			<div style="text-align: center;">
+				<h:commandButton class="btn btn-success btn-lg"
+					action="addCargaisonRoutiere"
+					actionListener="#{gestionCargaison.initialiserCargaisonRoutiere}"
+					value="Ajouter une nouvelle cargaison routière" />
+
+
+			</div>
+
+
+		
+
+			<div style="text-align: center;">
+				<h:commandButton class="btn btn-success btn-lg"
+					action="addCargaisonAerienne"
+					actionListener="#{gestionCargaison.initialiserCargaisonAerienne}"
+					value="Ajouter une nouvelle cargaison aérienne" />
+			</div>
+
+			
+
+			</h:form>
+			</div>
+			
+		</div>
+	</ui:define>
+
+</body>
 </html>

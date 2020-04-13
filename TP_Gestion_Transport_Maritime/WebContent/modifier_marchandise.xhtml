@@ -2,10 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"> 
 
-<h:head></h:head> 
+<h:head>
+	<title>Page de Modification d'une marchandise</title>
+</h:head> 
+
+
 <body> 
+	<ui:composition template="/templates/layout.xhtml">
+
+		<ui:define name="content">
+		
+			<h:form>
+			
+			<!-- Récupération de l'Id du client dans un champ caché -->
+			<h:inputHidden value="#{gestionMarchandise.marchandise.idMarchandise}" />
+
+				<h:panelGrid columns="3" cellpadding="1" cellspacing="2" width="30%"
+					style="text-align: right; margin:auto;">
+					
+								<f:facet name="header">
+						<div style="text-align: center;">
+							<h:graphicImage library="images" name="modifier.png" width="40%" />
+						</div>
+					</f:facet>
+	
+			<f:facet name="header">
+			<div style="text-align: center; margin-bottom: 10px; font-size: 30px; font-weight: bold; color: hotpink;">
+					Modification d'une Marchandise</div>
+			</f:facet>
+			
+			<h:outputLabel styleClass="text" for="nomMarchandise" value="Nom de la marchandise : "/>
+			<h:inputText id="nomMarchandise" required="true" requiredMessage="Veuillez entrer un nom." value="#{gestionMarchandise.marchandise.nom}" />
+			<h:message for="nomMarchandise" styleClass="error" />
+			
+			<h:outputLabel styleClass="text" for="poidsMarchandise" value="Poids : "/>
+			<h:inputText id="poidsMarchandise" required="true" requiredMessage="Veuillez entrer un poids" value="#{gestionMarchandise.marchandise.poids}" />
+			<h:message for="poidsMarchandise" styleClass="error" />
+			
+			<h:outputLabel styleClass="text" for="volumeMarchandise" value="Volume : "/>
+			<h:inputText id="volumeMarchandise" required="true" requiredMessage="Veuillez entrer un volume." value="#{gestionMarchandise.marchandise.volume}" />
+			<h:message for="volumeMarchandise" styleClass="error" />
+		
+			<f:facet name="footer">
+				<h:commandButton action="listeMarchandise" 
+								 actionListener="#{gestionMarchandise.updateMarchandise}" value="Modifier" />
+			</f:facet>	
+		
+				</h:panelGrid>
+
+			</h:form>
+		
+		</ui:define>
+
+	</ui:composition>
 
 </body> 
 </html>

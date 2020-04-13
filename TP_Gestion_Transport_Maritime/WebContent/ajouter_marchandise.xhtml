@@ -2,10 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:head></h:head> 
+<h:head>
+<title>Ajout d'une nouvelle marchandise</title>
+</h:head> 
 <body> 
+
+	<ui:composition template="/templates/layout.xhtml">
+
+		<ui:define name="content">
+
+	<h:form>
+	
+				<h:panelGrid columns="3" cellpadding="10" cellspacing="10" width="40%" 
+					style="text-align: right; margin: auto; padding-bottom:10px;">
+		
+					<f:facet name="header">
+						<div style="text-align: center;">
+							<h:graphicImage library="images" name="ajouter.png" width="30%" />
+						</div>
+					</f:facet>
+
+					<f:facet name="header">
+						<div
+							style="text-align: center; margin-bottom: 10px; font-size: 30px; font-weight: bold; color: hotpink;">
+							Création d'une Nouvelle Marchandise</div>
+					</f:facet>
+			
+			<h:outputLabel styleClass="text" for="nomMarchandise" value="Nom de la marchandise : "/>
+			<h:inputText id="nomMarchandise" required="true" requiredMessage="Veuillez entrer un nom." value="#{gestionMarchandise.marchandise.nom}" />
+			<h:message for="nomMarchandise" styleClass="error" />
+			
+			<h:outputLabel styleClass="text" for="poidsMarchandise" value="Poids : "/>
+			<h:inputText id="poidsMarchandise" required="true" requiredMessage="Veuillez entrer un poids." value="#{gestionMarchandise.marchandise.poids}" />
+			<h:message for="poidsMarchandise" styleClass="error" />
+			
+			<h:outputLabel styleClass="text" for="volumeMarchandise" value="Volume : "/>
+			<h:inputText id="volumeMarchandise" required="true" requiredMessage="Veuillez entrer une volume." value="#{gestionMarchandise.marchandise.volume}" />
+			<h:message for="volumeMarchandise" styleClass="error" />
+			
+
+		
+			<f:facet name="footer">
+				<h:commandButton action="listeMarchandise" 
+								 actionListener="#{gestionMarchandise.addMarchandise}"
+								 value="Ajouter" />
+			</f:facet>
+		
+		</h:panelGrid>
+	
+	</h:form>
+
+		</ui:define>
+
+	</ui:composition>
 
 </body> 
 </html>
