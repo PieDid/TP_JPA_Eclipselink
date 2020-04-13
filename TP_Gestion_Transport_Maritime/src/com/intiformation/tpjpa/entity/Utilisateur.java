@@ -19,8 +19,7 @@ import javax.persistence.Table;
 
 @Entity(name="utilisateur")
 @Table(name="utilisateurs")
-@NamedQueries({@NamedQuery(name="Utilisateur.isExists", 
-query="SELECT COUNT(u.idUtilisateur) FROM utilisateur u WHERE u.mail = ?1 AND u.mdp = ?2")})
+@NamedQueries({@NamedQuery(name="Utilisateur.isExists", query="SELECT COUNT(u.idUtilisateur) FROM utilisateur u WHERE u.mail = ?1 AND u.mdp = ?2")})
 
 public class Utilisateur implements Serializable{
 

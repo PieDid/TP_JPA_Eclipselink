@@ -9,13 +9,7 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 
 public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 	
-	protected EntityManager em = null;
-	
-	/*ctor*/
-	public CargaisonRoutiereDaoImpl() {
-		// récupération de l'EM
-		em = JpaUtil.getEntityManager();
-	}
+	protected EntityManager em = JpaUtil.getEntityManager();
 	
 	public void addCargaisonRoutiere(CargaisonRoutiere cargaisonRoutiere) {
 		
@@ -41,8 +35,6 @@ public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
 	
 	}
@@ -71,10 +63,7 @@ public class CargaisonRoutiereDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
-	
 	
 	}
 

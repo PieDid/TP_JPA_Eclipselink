@@ -19,14 +19,7 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 
 	
-	protected EntityManager em = null;
-	
-	public MarchandiseDaoImpl() {
-		System.out.println("Marchandise ctor  avant");
-		// récupération de l'EM
-		em = JpaUtil.getEntityManager();
-		System.out.println("Marchandise ctor  apres");
-	}
+	protected EntityManager em = JpaUtil.getEntityManager();
 	
 	@Override
 	public void addMarchandise(Marchandise marchandise) {
@@ -47,8 +40,6 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
 		
 	}//end add
@@ -72,10 +63,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
-		
 	}//end update
 
 	@Override
@@ -98,8 +86,6 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
 		
 	}//end remove

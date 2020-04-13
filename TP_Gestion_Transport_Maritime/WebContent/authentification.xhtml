@@ -35,7 +35,15 @@
 			<h:message for="idLogin" styleClass="error"/>
 			
 			
-			
+			<p:outputLabel styleClass="text" for="idPwd" value="Mot de passe : " />
+			<p:password id="idPwd"  required="true" 
+						 requiredMessage="Mot de passe obligatoire !"
+						 value="#{authentificationBean.mdp}"/>
+			<h:message for="idPwd" styleClass="error"/>
+		
+			<f:facet name="footer">
+			 <b:commandButton value="Se connecter" action="#{authentificationBean.connecter()}" look="info" style="width:100%; margin-top:10px;"/>
+			</f:facet>
 			
 	<!-- ======================================================== -->
 	<!-- ========== Affichage des messages globaux  ============= -->

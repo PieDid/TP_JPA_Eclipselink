@@ -9,14 +9,7 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 
 public class CargaisonAerienneDaoImpl extends CargaisonDaoImpl{
 
-	protected EntityManager em = null;
-	
-	/* ctor */
-	
-	public CargaisonAerienneDaoImpl() {
-		// récupération de l'EM
-		em = JpaUtil.getEntityManager();
-	}
+	protected EntityManager em = JpaUtil.getEntityManager();
 	
 	public void addCargaisonAerienne(CargaisonAerienne cargaisonAerienne) {
 		
@@ -42,8 +35,6 @@ public class CargaisonAerienneDaoImpl extends CargaisonDaoImpl{
 					ex.printStackTrace();
 				}
 	
-			}finally {
-				em.close();
 			}
 	
 		}
@@ -72,8 +63,6 @@ public class CargaisonAerienneDaoImpl extends CargaisonDaoImpl{
 				ex.printStackTrace();
 			}
 
-		}finally {
-			em.close();
 		}
 
 	}

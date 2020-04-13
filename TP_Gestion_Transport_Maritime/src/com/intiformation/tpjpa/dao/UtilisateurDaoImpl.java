@@ -20,15 +20,7 @@ import com.intiformation.tpjpa.tool.JpaUtil;
  */
 public class UtilisateurDaoImpl implements IUtilisateurDao{
 
-	protected EntityManager em = null;
-	
-	/*ctor*/
-	public UtilisateurDaoImpl() {
-		System.out.println("Utilisateur Dao ctor avant");
-		// récupération de l'EM
-		em = JpaUtil.getEntityManager();
-		System.out.println("Utilisateur Dao ctor apres");
-	}
+	protected EntityManager em = JpaUtil.getEntityManager();
 	
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) {
@@ -49,33 +41,42 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 				ex.printStackTrace();
 			}
 
-		} finally {
-			em.close();
 		}
 		
 	}
 	
 	@Override
 	public boolean isUtilisateurExists(String mail, String mdp) {
-
+		
+		
 		try {
 			
-			//requete 
-			Query query = em.createNamedQuery("Utilisateur.isExists");
-			query.setParameter(1, mail);
-			query.setParameter(2, mdp);
+			em = JpaUtil.getEntityManager();
+					
+			CriteriaBuilder cb = em.getCriteriaBuilder();			
 			
-			// execution + récupération du résultat de la requete 
-			Long isExistsVerif =  (Long) query.getSingleResult();
+			CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+					
+			Root<Utilisateur> clauseFROM = cq.from(Utilisateur.class);
+						
+			CriteriaQuery<Long> clauseSELECT =  cq.select(cb.count(clauseFROM.get("idUtilisateur")));
+			
+			Predicate conditionWHEREmail = cb.equal(clauseFROM.get("mail"), mail);
+			
+			Predicate conditionWHEREmpd = cb.equal(clauseFROM.get("mdp"), mdp);
+			
+			CriteriaQuery<Long> clauseWHERE = cq.where(cb.and(conditionWHEREmail,conditionWHEREmpd));
+					
+			TypedQuery<Long> getUtilisateurByIdQUERY =  em.createQuery(clauseSELECT);
+							
+			Long isExistsVerif =  (Long) getUtilisateurByIdQUERY.getSingleResult();
 			
 			return (isExistsVerif ==1);
 			
 		} catch (PersistenceException e) {
 			System.out.println("... Erreur lors de la vérif de l'existance de l'utilisateur ....");
 			e.printStackTrace();
-		} finally {
-			em.close();
-		}
+		} 
 		
 		return false;
 

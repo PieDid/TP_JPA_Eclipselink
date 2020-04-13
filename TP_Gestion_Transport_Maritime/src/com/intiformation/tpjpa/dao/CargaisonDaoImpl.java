@@ -14,13 +14,7 @@ import com.intiformation.tpjpa.tool.JpaUtil;
 
 public class CargaisonDaoImpl implements ICargaisonDao {
 
-	protected EntityManager em = null;
-	
-	/*ctor*/
-	public CargaisonDaoImpl() {
-		// récupération de l'EM
-		em = JpaUtil.getEntityManager();
-	}
+	protected EntityManager em = JpaUtil.getEntityManager();
 	
 	@Override
 	public void deleteCargaison(Long idCargaison) {
@@ -46,8 +40,6 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 			}
 			System.out.println("... Erreur dans la suppression d'une Cargaison ...");
 			e.printStackTrace();
-		}finally {
-			em.close();
 		}
 		
 	} // end deleteCargaison()

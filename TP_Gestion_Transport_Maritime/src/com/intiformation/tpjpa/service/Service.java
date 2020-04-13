@@ -20,24 +20,12 @@ public class Service implements IService {
 
 	/* ___________________ DAOs _____________________________ */
 	
-	IUtilisateurDao utilisateurDao = null;
-	IMarchandiseDao<Marchandise> marchandiseDao = null; 
-	ICargaisonDao cargaisonDao = null;
-	CargaisonAerienneDaoImpl cargaisonAerienneDao = null;
-	CargaisonRoutiereDaoImpl cargaisonRoutiereDao = null;
+	IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
+	IMarchandiseDao<Marchandise> marchandiseDao = new MarchandiseDaoImpl(); 
+	ICargaisonDao cargaisonDao = new CargaisonDaoImpl();
+	CargaisonAerienneDaoImpl cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
+	CargaisonRoutiereDaoImpl cargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
 	
-	/*_____________________ ctors ______________________________*/
-	
-	/**
-	 * ctor de service
-	 */
-	public Service() {
-		this.utilisateurDao =  new UtilisateurDaoImpl();
-		this.marchandiseDao = new MarchandiseDaoImpl();
-		this.cargaisonDao = new CargaisonDaoImpl();
-		this.cargaisonAerienneDao = new CargaisonAerienneDaoImpl();
-		this.cargaisonRoutiereDao = new CargaisonRoutiereDaoImpl();
-	}
 	
 	/* ___________________ Méthodes _____________________________ */
 
