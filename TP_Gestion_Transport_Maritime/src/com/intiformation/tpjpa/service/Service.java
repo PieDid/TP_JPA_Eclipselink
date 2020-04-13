@@ -263,7 +263,34 @@ public class Service implements IService {
 		// on retourne le cout
 		return cout;
 	}
+	
+	/**
+	 * Trie les cargaisons pour ne récupérer que les cargaisons aeriennes
+	 * @return : les cargaisons aeriennes
+	 */
+	public List<Cargaison> recupererCargaisonAerienne(){
+		
+		List<Cargaison> Cargaison = recupererToutesCargaisons();
+		
+		Cargaison.removeIf(n -> (n.getClass().equals(CargaisonRoutiere.class)));
+		
+		return Cargaison;
+		
+	}
 
+	/**
+	 * Trie les cargaisons pour ne récupérer que les cargaisons routieres
+	 * @return : les cargaisons routieres
+	 */
+	public List<Cargaison> recupererCargaisonRoutiere(){
+		
+		List<Cargaison> Cargaison = recupererToutesCargaisons();
+		
+		Cargaison.removeIf(n -> (n.getClass().equals(CargaisonAerienne.class)));
+		
+		return Cargaison;
+		
+	}
 	
 
 }

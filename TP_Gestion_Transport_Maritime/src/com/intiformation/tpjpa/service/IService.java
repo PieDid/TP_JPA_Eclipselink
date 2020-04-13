@@ -132,6 +132,19 @@ public interface IService {
 	 */
 	public List<Cargaison> recupererToutesCargaisons();
 	
+	
+	/**
+	 * Trie les cargaisons pour ne récupérer que les cargaisons aeriennes
+	 * @return : les cargaisons aeriennes
+	 */
+	public List<Cargaison> recupererCargaisonAerienne();
+	
+	/**
+	 * Trie les cargaisons pour ne récupérer que les cargaisons routieres
+	 * @return : les cargaisons routieres
+	 */
+	public List<Cargaison> recupererCargaisonRoutiere();
+	
 	/**
 	 * récupère une cargaiosn par son id
 	 * @param idCargaison : l'id de la cargaison à récuperer

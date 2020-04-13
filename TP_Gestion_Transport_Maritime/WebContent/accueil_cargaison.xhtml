@@ -17,11 +17,12 @@
 
 
 			<div style="margin: auto; width: 80%;">
-				<h2>Liste des Cargaisons</h2>
+				<h:graphicImage library="images" name="cargaisonAerienne.png" width="10%"/>
+				<h2 style="display: inline;">Liste des Cargaisons Aeriennes</h2>
 				<br />
 				<br />
 				<h:dataTable class="table table-striped"
-					value="#{gestionCargaison.allCargaisons}" var="cargaison"
+					value="#{gestionCargaison.cargaisonsAeriennes}" var="cargaison"
 					width="100%">
 
 					<h:column>
@@ -56,8 +57,68 @@
 						<!-- donnée de la colonne -->
 						<h:outputText value="#{cargaison.dateLivraison}" />
 					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="poids maximum" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.poidsMaximal}" />
+					</h:column>
 
 				</h:dataTable>
+				
+				<h:graphicImage library="images" name="cargaisonRoutiere.png" width="10%"/>
+				<h2 style="display: inline;">Liste des Cargaisons Routieres</h2>
+				<br />
+				<br />
+				<h:dataTable class="table table-striped"
+					value="#{gestionCargaison.cargaisonsRoutieres}" var="cargaison"
+					width="100%">
+
+					<h:column>
+						<!-- en-tête de la colonne -->
+						<f:facet name="header">
+							<h:outputText value="ID Cargaison" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.idCargaison}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nom" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.nomCargaison}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="distance (km)" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.distance}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="date de livraison" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.dateLivraison}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="temperature de conservation" />
+						</f:facet>
+						<!-- donnée de la colonne -->
+						<h:outputText value="#{cargaison.temperatureConservation}" />
+					</h:column>
+
+				</h:dataTable>
+			
 			</div>
 
 		</ui:define>

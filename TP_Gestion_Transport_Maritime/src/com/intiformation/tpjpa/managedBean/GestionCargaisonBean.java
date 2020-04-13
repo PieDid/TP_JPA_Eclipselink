@@ -45,6 +45,14 @@ public class GestionCargaisonBean implements Serializable{
 	}
 	
 
+	public List<Cargaison> getCargaisonsAeriennes() {
+		return service.recupererCargaisonAerienne();
+	}
+	
+	public List<Cargaison> getCargaisonsRoutieres() {
+		return service.recupererCargaisonRoutiere();
+	}
+	
 	/*__________________ G/S _________________*/
 	
 	/**
