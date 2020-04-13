@@ -128,7 +128,11 @@ public class Service implements IService {
 	 */
 	@Override
 	public double poidsTotal(Cargaison cargaison) {
-		return marchandiseDao.poidsTotal(cargaison);
+		
+		if (marchandiseDao.getMarchandiseByIdCargaison(cargaison).isEmpty())
+			return 0.0;
+		else
+			return marchandiseDao.poidsTotal(cargaison);
 	}
 	
 	/**
@@ -138,7 +142,10 @@ public class Service implements IService {
 	 */
 	@Override
 	public double volumeTotal(Cargaison cargaison) {
-		return marchandiseDao.volumeTotal(cargaison);
+		if (marchandiseDao.getMarchandiseByIdCargaison(cargaison).isEmpty())
+			return 0.0;
+		else
+			return marchandiseDao.volumeTotal(cargaison);
 	}
 	
 	/**
@@ -224,7 +231,9 @@ public class Service implements IService {
 	 */
 	@Override
 	public double coutCargaison(Long idCargaison) {
-		
+		if (marchandiseDao.getMarchandiseByIdCargaison(cargaisonDao.getById(idCargaison)).isEmpty())
+			return 0.0;
+		else {
 		// récupération de la cargaison
 		Cargaison cargaison = cargaisonDao.getById(idCargaison);
 		
@@ -261,7 +270,7 @@ public class Service implements IService {
 		}
 		
 		// on retourne le cout
-		return cout;
+		return cout;}
 	}
 	
 	/**

@@ -5,10 +5,16 @@ package com.intiformation.tpjpa.managedBean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import com.intiformation.tpjpa.entity.Cargaison;
+import com.intiformation.tpjpa.entity.CargaisonAerienne;
+import com.intiformation.tpjpa.entity.CargaisonRoutiere;
 import com.intiformation.tpjpa.service.IService;
 import com.intiformation.tpjpa.service.Service;
 
@@ -25,6 +31,7 @@ public class GestionCargaisonBean implements Serializable{
 	/*_________________ props ________________*/
 	
 	List<Cargaison> listeCargaison;
+	Cargaison cargaison;
 	
 	//service
 	IService service;
@@ -53,6 +60,51 @@ public class GestionCargaisonBean implements Serializable{
 		return service.recupererCargaisonRoutiere();
 	}
 	
+	public Double getVolumeTotal(Cargaison cargaison) {
+		return service.volumeTotal(cargaison);
+	}
+	
+	public Double getPoidsTotal(Cargaison cargaison) {
+		return service.poidsTotal(cargaison);
+	}
+	
+	public Double getCout(Long idCargaison) {
+		return service.coutCargaison(idCargaison);
+	}
+	
+	public void initialiserCargaisonAerienne(ActionEvent event) {
+		setCargaison(new CargaisonAerienne());	
+	}
+	
+	public void initialiserCargaisonRoutiere(ActionEvent event) {
+		setCargaison(new CargaisonRoutiere());	
+	}
+	
+	
+	public void choisirCargaison(ActionEvent event) {
+		
+			UIParameter cp = (UIParameter) event.getComponent().findComponent("choixID");
+
+			Long idCargaison = (Long) cp.getValue();
+
+			setCargaison(service.recupererCargaisonParId(idCargaison));
+	}
+	
+	
+	////////////////////////////////////////////////////////////
+	
+	public void supprimerCargaison(ActionEvent event) {
+
+		UIParameter cp = (UIParameter) event.getComponent().findComponent("deleteID");
+
+		 Long idCargaison = (long) cp.getValue();
+
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
+
+		service.supprimerCargaion(idCargaison);
+
+	} // end supprimerCompte()
+	
 	/*__________________ G/S _________________*/
 	
 	/**
@@ -67,6 +119,20 @@ public class GestionCargaisonBean implements Serializable{
 	 */
 	public void setListeCargaison(List<Cargaison> listeCargaison) {
 		this.listeCargaison = listeCargaison;
+	}
+
+	/**
+	 * @return the cargaison
+	 */
+	public Cargaison getCargaison() {
+		return cargaison;
+	}
+
+	/**
+	 * @param cargaison the cargaison to set
+	 */
+	public void setCargaison(Cargaison cargaison) {
+		this.cargaison = cargaison;
 	}
 	
 

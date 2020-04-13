@@ -17,108 +17,263 @@
 
 
 			<div style="margin: auto; width: 80%;">
-				<h:graphicImage library="images" name="cargaisonAerienne.png" width="10%"/>
-				<h2 style="display: inline;">Liste des Cargaisons Aeriennes</h2>
-				<br />
-				<br />
-				<h:dataTable class="table table-striped"
-					value="#{gestionCargaison.cargaisonsAeriennes}" var="cargaison"
-					width="100%">
+				<h:form style="text-align: left;">
+					<h:graphicImage library="images" name="cargaisonAerienne.png"
+						width="10%" />
+					<h2 style="display: inline;">Liste des Cargaisons Aeriennes</h2>
+					<br />
+					<br />
+					<h:dataTable class="table table-striped"
+						value="#{gestionCargaison.cargaisonsAeriennes}" var="cargaison"
+						width="100%">
 
-					<h:column>
-						<!-- en-tête de la colonne -->
-						<f:facet name="header">
-							<h:outputText value="ID Cargaison" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.idCargaison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Nom" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.nomCargaison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="distance (km)" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.distance}" />
-					</h:column>
+						<h:column>
+							<!-- en-tête de la colonne -->
+							<f:facet name="header">
+								<h:outputText value="ID Cargaison" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.idCargaison}" />
+						</h:column>
 
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="date de livraison" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.dateLivraison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="poids maximum" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.poidsMaximal}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nom" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.nomCargaison}" />
+						</h:column>
 
-				</h:dataTable>
-				
-				<h:graphicImage library="images" name="cargaisonRoutiere.png" width="10%"/>
-				<h2 style="display: inline;">Liste des Cargaisons Routieres</h2>
-				<br />
-				<br />
-				<h:dataTable class="table table-striped"
-					value="#{gestionCargaison.cargaisonsRoutieres}" var="cargaison"
-					width="100%">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="distance (km)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.distance}" />
+						</h:column>
 
-					<h:column>
-						<!-- en-tête de la colonne -->
-						<f:facet name="header">
-							<h:outputText value="ID Cargaison" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.idCargaison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Nom" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.nomCargaison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="distance (km)" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.distance}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="poids total(kg)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getPoidsTotal(cargaison)}" />
+						</h:column>
 
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="date de livraison" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.dateLivraison}" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="temperature de conservation" />
-						</f:facet>
-						<!-- donnée de la colonne -->
-						<h:outputText value="#{cargaison.temperatureConservation}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="volume total (m3)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getVolumeTotal(cargaison)}" />
+						</h:column>
 
-				</h:dataTable>
-			
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="coût (€)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getCout(cargaison.idCargaison)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="date de livraison" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.dateLivraison}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="poids maximum (kg)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.poidsMaximal}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+
+							<h:commandLink id="delete" action="listeCargaison"
+								actionListener="#{gestionCargaison.supprimerCargaison}">
+
+								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
+								<f:param id="deleteID" name="id"
+									value="#{cargaison.idCargaison}" />
+
+								<!-- label du lien -->
+								<h:graphicImage library="images" name="supprimer.png"
+									width="25px" />
+							</h:commandLink>
+						</h:column>
+
+						<!-- colonne pour modifier le compte -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la suppression -->
+							<!-- 
+						attribut du lien h:commandLink:
+							- action : clé d'outcom pour la navigation (ref faces-config.xml)
+							- actionListener : méthode à invoquer dans le managedBean
+				 -->
+							<h:commandLink id="update" action="updateCargaison"
+								actionListener="#{gestionCargaison.choisirCargaison}">
+
+								<!-- passage de paramètre au composant : nom updateID / valeur = l'id du client -->
+								<f:param id="choixID" name="id" value="#{cargaison.idCargaison}" />
+
+								<!-- label du lien -->
+								<h:graphicImage library="images" name="modifier.png"
+									width="25px" />
+							</h:commandLink>
+						</h:column>
+						
+					</h:dataTable>
+
+					<div style="text-align: center;">
+						<h:commandButton class="btn btn-success btn-lg"
+							action="addCargaisonAerienne"
+							actionListener="#{gestionCargaison.initialiserCargaisonAerienne}"
+							value="Ajouter une nouvelle cargaison aérienne" />
+					</div>
+				</h:form>
+				<h:form style="text-align: left;">
+					<h:graphicImage library="images" name="cargaisonRoutiere.png"
+						width="10%" />
+					<h2 style="display: inline;">Liste des Cargaisons Routieres</h2>
+					<br />
+					<br />
+					<h:dataTable class="table table-striped"
+						value="#{gestionCargaison.cargaisonsRoutieres}" var="cargaison"
+						width="100%">
+
+						<h:column>
+							<!-- en-tête de la colonne -->
+							<f:facet name="header">
+								<h:outputText value="ID Cargaison" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.idCargaison}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nom" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.nomCargaison}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="distance (km)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.distance}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="poids total(kg)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getPoidsTotal(cargaison)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="volume total (m3)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getVolumeTotal(cargaison)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="coût (€)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText
+								value="#{gestionCargaison.getCout(cargaison.idCargaison)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="date de livraison" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.dateLivraison}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="temperature (°C)" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{cargaison.temperatureConservation}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+
+							<h:commandLink id="delete" action="listeCargaison"
+								actionListener="#{gestionCargaison.supprimerCargaison}">
+
+								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
+								<f:param id="deleteID" name="id"
+									value="#{cargaison.idCargaison}" />
+
+								<!-- label du lien -->
+								<h:graphicImage library="images" name="supprimer.png"
+									width="25px" />
+							</h:commandLink>
+						</h:column>
+
+						<!-- colonne pour modifier le compte -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la suppression -->
+							<!-- 
+						attribut du lien h:commandLink:
+							- action : clé d'outcom pour la navigation (ref faces-config.xml)
+							- actionListener : méthode à invoquer dans le managedBean
+				 -->
+							<h:commandLink id="update" action="updateCargaison"
+								actionListener="#{gestionCargaison.choisirCargaison}">
+
+								<!-- passage de paramètre au composant : nom updateID / valeur = l'id du client -->
+								<f:param id="choixID" name="id" value="#{cargaison.idCargaison}" />
+
+								<!-- label du lien -->
+								<h:graphicImage library="images" name="modifier.png"
+									width="25px" />
+							</h:commandLink>
+						</h:column>
+
+					</h:dataTable>
+					<div style="text-align: center;">
+						<h:commandButton class="btn btn-success btn-lg"
+							action="addCargaisonRoutiere"
+							actionListener="#{gestionCargaison.initialiserCargaisonRoutiere}"
+							value="Ajouter une nouvelle cargaison routière" />
+
+
+					</div>
+				</h:form>
 			</div>
 
 		</ui:define>

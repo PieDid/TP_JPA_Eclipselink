@@ -27,6 +27,8 @@ public class AppTestGestionCargaison {
 		// 1.2. Instances des cargaisons à ajouter
 		Cargaison car1 = new CargaisonAerienne ("Aero1", 140, "2020-05-15", 10000);
 		Cargaison car2 = new CargaisonRoutiere ("Road1", 75, "2020-05-24", 4);
+		Cargaison car3 = new CargaisonAerienne ("Aero2", 2500, "2020-06-15", 15000);
+		Cargaison car4 = new CargaisonRoutiere ("Road2", 400, "2020-07-12", 2.5);
 		
 		//1.3. Instance des marchandises
 		Marchandise mar1 = new Marchandise ("Pomme", 1, 2, 3, car1);
@@ -40,6 +42,8 @@ public class AppTestGestionCargaison {
 
 		service.ajouterCargaisonAerienne((CargaisonAerienne) car1);
 		service.ajouterCargaisonRoutiere((CargaisonRoutiere) car2);
+		service.ajouterCargaisonAerienne((CargaisonAerienne) car3);
+		service.ajouterCargaisonRoutiere((CargaisonRoutiere) car4);
 		
 		service.ajouterMarchandise(mar1);
 		service.ajouterMarchandise(mar2);
