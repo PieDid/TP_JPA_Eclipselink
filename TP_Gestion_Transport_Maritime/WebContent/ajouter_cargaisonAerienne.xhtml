@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>Page d'ajout d'une cargaison Aerienne</title>
+</h:head>
+<body>
+
+	<ui:composition template="/templates/layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+
+				<h:panelGrid ccolumns="3" cellpadding="10" cellspacing="10" width="40%" 
+					style="text-align: right; margin: auto; padding-bottom:10px;">
+
+					<f:facet name="header">
+						<div style="text-align: center;">
+							<h:graphicImage library="images" name="ajouter.png" width="30%" />
+						</div>
+					</f:facet>
+
+					<f:facet name="header">
+						<div
+							style="text-align: center; margin-bottom: 10px; font-size: 30px; font-weight: bold; color: skyblue;">
+							Ajout d'une cargaison aérienne</div>
+					</f:facet>
+
+					<h:outputLabel styleClass="text" for="nomCargaison"
+						value="Nom de la cargaison : " />
+					<h:inputText style="display: inline-table; " id="nomCargaison" required="true"
+						requiredMessage="Veuillez entrer un nom."
+						value="#{gestionCargaison.cargaison.nomCargaison}" />
+					<h:message for="nomCargaison" styleClass="error" />
+					
+					
+					<h:outputLabel styleClass="text" for="distanceCargaison"
+						value="Distance de la cargaison (km) : " />
+					<h:inputText style="display: inline-table; " id="distanceCargaison" required="true"
+						requiredMessage="Veuillez entrer une distance."
+						value="#{gestionCargaison.cargaison.distance}"  />
+					<h:message for="distanceCargaison" styleClass="error" />
+					
+					<h:outputLabel styleClass="text" for="dateCargaison"
+						value="Date de la cargaison (YYYY-MM-dd) : " />
+					<h:inputText style="display: inline-table; " id="dateCargaison" required="true"
+						requiredMessage="Veuillez entrer un date de livraison."
+						value="#{gestionCargaison.cargaison.dateLivraison}"  />
+					<h:message for="dateCargaison" styleClass="error" />
+					
+					<h:outputLabel styleClass="text" for="poidsMaxCargaison"
+						value="poids maximum de la cargaison (kg) : " />
+					<h:inputText style="display: inline-table; " id="poidsMaxCargaison" required="true"
+						requiredMessage="Veuillez entrer un poids maximum."
+						value="#{gestionCargaison.cargaison.poidsMaximal}"  />
+					<h:message for="poidsMaxCargaison" styleClass="error" />
+
+
+					<f:facet name="footer">
+						<b:commandButton value="Ajouter une cargaison aérienne" action="listeMarchandise"
+								actionListener="#{gestionCargaison.ajouterCargaisonAerienne}" look="success"
+								style="width:100%; margin-top:10px;" />
+					</f:facet>
+			
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</body>
+</html>
