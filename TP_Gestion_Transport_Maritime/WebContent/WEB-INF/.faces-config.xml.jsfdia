@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:#accueil.xhtml" PATH="/accueil.xhtml"
-  SHAPE="56,312,50,57" model-entity="JSFProcessGroup">
+  SHAPE="544,312,50,57" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#accueil.xhtml:0" NAME="item"
    PATH="/accueil.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
@@ -14,7 +14,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#accueil_marchandise.xhtml"
-  PATH="/accueil_marchandise.xhtml" SHAPE="232,184,50,105" model-entity="JSFProcessGroup">
+  PATH="/accueil_marchandise.xhtml" SHAPE="368,432,50,105" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#accueil_marchandise.xhtml:0" NAME="item"
    PATH="/accueil_marchandise.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="addMarchandise::#ajouter_marchandise.xhtml"
@@ -36,7 +36,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#modifier_marchandise.xhtml"
-  PATH="/modifier_marchandise.xhtml" SHAPE="400,32,50,41" model-entity="JSFProcessGroup">
+  PATH="/modifier_marchandise.xhtml" SHAPE="568,656,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#modifier_marchandise.xhtml:0" NAME="item"
    PATH="/modifier_marchandise.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
@@ -46,7 +46,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_marchandise.xhtml"
-  PATH="/ajouter_marchandise.xhtml" SHAPE="48,32,50,41" model-entity="JSFProcessGroup">
+  PATH="/ajouter_marchandise.xhtml" SHAPE="552,560,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter_marchandise.xhtml:0" NAME="item"
    PATH="/ajouter_marchandise.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
@@ -56,7 +56,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#accueil_cargaison.xhtml"
-  PATH="/accueil_cargaison.xhtml" SHAPE="248,424,50,89" model-entity="JSFProcessGroup">
+  PATH="/accueil_cargaison.xhtml" SHAPE="352,72,50,105" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#accueil_cargaison.xhtml:0" NAME="item"
    PATH="/accueil_cargaison.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
@@ -70,15 +70,17 @@
    <PROCESS-ITEM-OUTPUT ID="updateCargaison::#detail_cargaison.xhtml"
     NAME="output2" PATH="/detail_cargaison.xhtml"
     TARGET="rules:#detail_cargaison.xhtml" TITLE="updateCargaison" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output3"
+    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="listeCargaison::#accueil_cargaison.xhtml"
-    NAME="output3" PATH="/accueil_cargaison.xhtml"
+    NAME="output4" PATH="/accueil_cargaison.xhtml"
     TARGET="rules:#accueil_cargaison.xhtml" TITLE="listeCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#detail_cargaison.xhtml"
-  PATH="/detail_cargaison.xhtml" SHAPE="528,336,50,57" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#detail_cargaison.xhtml:0" NAME="item"
-   PATH="/detail_cargaison.xhtml" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#ajouter_cargaisonRoutiere.xhtml"
+  PATH="/ajouter_cargaisonRoutiere.xhtml" SHAPE="200,616,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajouter_cargaisonRoutiere.xhtml:0"
+   NAME="item" PATH="/ajouter_cargaisonRoutiere.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output"
     PATH="/accueil_marchandise.xhtml"
@@ -89,23 +91,29 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_cargaisonAerienne.xhtml"
-  PATH="/ajouter_cargaisonAerienne.xhtml" SHAPE="72,480,50,41" model-entity="JSFProcessGroup">
+  PATH="/ajouter_cargaisonAerienne.xhtml" SHAPE="88,616,50,57" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter_cargaisonAerienne.xhtml:0"
    NAME="item" PATH="/ajouter_cargaisonAerienne.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output"
     PATH="/accueil_marchandise.xhtml"
     TARGET="rules:#accueil_marchandise.xhtml" TITLE="listeMarchandise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listeCargaison::#accueil_cargaison.xhtml"
+    NAME="output1" PATH="/accueil_cargaison.xhtml"
+    TARGET="rules:#accueil_cargaison.xhtml" TITLE="listeCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#ajouter_cargaisonRoutiere.xhtml"
-  PATH="/ajouter_cargaisonRoutiere.xhtml" SHAPE="632,504,50,41" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#ajouter_cargaisonRoutiere.xhtml:0"
-   NAME="item" PATH="/ajouter_cargaisonRoutiere.xhtml" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#detail_cargaison.xhtml"
+  PATH="/detail_cargaison.xhtml" SHAPE="128,248,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#detail_cargaison.xhtml:0" NAME="item"
+   PATH="/detail_cargaison.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output"
     PATH="/accueil_marchandise.xhtml"
     TARGET="rules:#accueil_marchandise.xhtml" TITLE="listeMarchandise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listeCargaison::#accueil_cargaison.xhtml"
+    NAME="output1" PATH="/accueil_cargaison.xhtml"
+    TARGET="rules:#accueil_cargaison.xhtml" TITLE="listeCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>
