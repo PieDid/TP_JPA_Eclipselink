@@ -5,16 +5,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:b="http://bootsfaces.net/ui">
->
+
 
 <h:head>
 
-	<title>Page de gestion des clients</title>
+	<title>Page de gestion des marchandises</title>
 	<h:outputScript library="scripts" name="jquery-3.4.1.js" />
 	<h:outputScript library="scripts" name="monScript.js" />
 
 </h:head>
 <body>
+
+<ui:composition template="templates/layout.xhtml">
 
 	<ui:define name="content">
 		<div style="margin: auto; width: 80%;">
@@ -31,14 +33,14 @@
 			<!-- ======== Affichage de tous des clients dans la bdd ========= -->
 			<!-- =============================================================== -->
 
-			<div id="ListeMarchandise" style="display: none;">
-				<h2>
-					Liste de toutes les Marchandises disponibles <br /> <br />
-				</h2>
+			<div id="ListeMarchandise">
+
 
 				<h:form style="text-align: left;">
+				<h2>Liste de toutes les Marchandises disponibles </h2>
+				<br /> <br />
 					<h:dataTable class="table table-striped"
-						value="#{gestionMarchandise.getAllMarchandise}" var="marchandise"
+						value="#{gestionMarchandise.getAllMarchandise()}" var="marchandise"
 						width="100%">
 
 
@@ -60,14 +62,14 @@
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Poids unitaire" />
+								<h:outputText value="Poids unitaire (en kg)" />
 							</f:facet>
 							<h:outputText value="#{marchandise.poids}" />
 						</h:column>
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Volume unitaire" />
+								<h:outputText value="Volume unitaire (en m3)" />
 							</f:facet>
 							<h:outputText value="#{marchandise.volume}" />
 						</h:column>
@@ -85,7 +87,7 @@
 							- actionListener : méthode à invoquer dans le managedBean
 				 -->
 							<h:commandLink id="update" action="updateMarchandise"
-								actionListener="#{gestionMarchandise.getById}">
+								actionListener="#{gestionMarchandise.setMarchandise}">
 
 								<!-- passage de paramètre au composant : nom updateID / valeur = l'id de la marchandise -->
 								<f:param id="updateID" name="id"
@@ -145,21 +147,9 @@
 
 			<div style="text-align: center;">
 				<h:commandButton class="btn btn-success btn-lg"
-					action="addCargaisonRoutiere"
-					actionListener="#{gestionCargaison.initialiserCargaisonRoutiere}"
-					value="Ajouter une nouvelle cargaison routière" />
-
-
-			</div>
-
-
-		
-
-			<div style="text-align: center;">
-				<h:commandButton class="btn btn-success btn-lg"
-					action="addCargaisonAerienne"
-					actionListener="#{gestionCargaison.initialiserCargaisonAerienne}"
-					value="Ajouter une nouvelle cargaison aérienne" />
+					action="detailCargaison"
+					actionListener="#{gestionCargaison.choisirCargaison}"
+					value="Ajouter Marchandises à une cargaison" />
 			</div>
 
 			
@@ -169,6 +159,6 @@
 			
 		</div>
 	</ui:define>
-
+</ui:composition>
 </body>
 </html>

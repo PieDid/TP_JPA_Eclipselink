@@ -89,7 +89,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_cargaisonAerienne.xhtml"
-  PATH="/ajouter_cargaisonAerienne.xhtml" SHAPE="72,488,50,41" model-entity="JSFProcessGroup">
+  PATH="/ajouter_cargaisonAerienne.xhtml" SHAPE="72,480,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter_cargaisonAerienne.xhtml:0"
    NAME="item" PATH="/ajouter_cargaisonAerienne.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
