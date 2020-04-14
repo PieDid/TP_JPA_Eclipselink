@@ -99,7 +99,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_cargaisonRoutiere.xhtml"
-  PATH="/ajouter_cargaisonRoutiere.xhtml" SHAPE="72,584,50,41" model-entity="JSFProcessGroup">
+  PATH="/ajouter_cargaisonRoutiere.xhtml" SHAPE="632,504,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter_cargaisonRoutiere.xhtml:0"
    NAME="item" PATH="/ajouter_cargaisonRoutiere.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT

@@ -32,7 +32,7 @@ public class GestionCargaisonBean implements Serializable{
 	
 	List<Cargaison> listeCargaison;
 	Cargaison cargaison;
-	
+
 	//service
 	IService service;
 	
@@ -105,6 +105,19 @@ public class GestionCargaisonBean implements Serializable{
 
 	} // end supprimerCompte()
 	
+	
+	public void ajouterCargaisonAerienne(ActionEvent event) {
+		
+		service.ajouterCargaisonAerienne((CargaisonAerienne) cargaison);
+		
+	}
+	
+	public void ajouterCargaisonRoutiere(ActionEvent event) {
+		
+		service.ajouterCargaisonRoutiere((CargaisonRoutiere) cargaison);
+		
+	}
+	
 	/*__________________ G/S _________________*/
 	
 	/**
@@ -134,6 +147,6 @@ public class GestionCargaisonBean implements Serializable{
 	public void setCargaison(Cargaison cargaison) {
 		this.cargaison = cargaison;
 	}
-	
+
 
 }
