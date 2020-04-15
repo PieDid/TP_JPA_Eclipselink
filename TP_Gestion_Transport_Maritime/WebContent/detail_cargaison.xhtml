@@ -1,24 +1,183 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:head></h:head> 
-<body> 
+<h:head></h:head>
+<body>
+	<ui:composition template="templates/layout.xhtml">
 
-<h1>Détail</h1>
+		<ui:define name="content">
 
-			<h:form>
-				<h:commandButton action="listeCargaison"
-					value="Afficher la liste des cargaisons" />
-			</h:form>
-			
-			
-			<h:form>
-				<h:commandButton action="listeMarchandise"
-					value="Afficher la liste des marchandises" />
-			</h:form>
 
-</body> 
+			<div style="margin: auto; width: 80%;">
+				<h1>Détail de la cargaison</h1>
+
+				<h:form>
+					<h:panelGrid ccolumns="6" cellpadding="10" cellspacing="10" width="60%" 
+					style=" margin: auto; padding-bottom:10px;">
+					
+					<f:facet name="header">
+						<div style="text-align: center;">
+							<h:graphicImage library="images" name="details.png" width="10%" />
+						</div>
+					</f:facet>
+					
+					<h:outputLabel styleClass="text" for="nomCargaison"
+						value="Nom de la cargaison : " />
+					<h:inputText style="display: inline-table; " id="nomCargaison" required="true"
+						requiredMessage="Veuillez entrer un nom."
+						value="#{gestionCargaison.cargaison.nomCargaison}" />
+					<h:message for="nomCargaison" styleClass="error" />
+					
+					
+					<h:outputLabel styleClass="text" for="distanceCargaison"
+						value="Distance de la cargaison (km) : " />
+					<h:inputText style="display: inline-table; " id="distanceCargaison" required="true"
+						requiredMessage="Veuillez entrer une distance."
+						value="#{gestionCargaison.cargaison.distance}"  />
+					<h:message for="distanceCargaison" styleClass="error" />
+					
+					<h:outputLabel styleClass="text" for="dateCargaison"
+						value="Date de la cargaison (YYYY-MM-dd) : " />
+					<h:inputText style="display: inline-table; " id="dateCargaison" required="true"
+						requiredMessage="Veuillez entrer un date de livraison."
+						value="#{gestionCargaison.cargaison.dateLivraison}"  />
+					<h:message for="dateCargaison" styleClass="error" />
+					<c:if test="#{gestionCargaison.cargaison.getClass().equals(com.intiformation.tpjpa.entity.CargaisonAerienne)}">
+						<h:outputLabel styleClass="text" for="poidsMaxCargaison"
+						value="poids maximum de la cargaison (kg) :" />
+						<h:inputText style="display: inline-table; " id="poidsMaxCargaison" required="true"
+						requiredMessage="Veuillez entrer un poids maximum."
+						value="#{gestionCargaison.cargaison.poidsMaximal}"  />
+						<h:message for="poidsMaxCargaison" styleClass="error" />
+					</c:if>
+					
+				
+							<!-- en-tête de la colonne -->
+							
+							<h:outputText value="Poids total : #{gestionCargaison.getPoidsTotal(gestionCargaison.cargaison)} kg" />
+							
+						
+							<h:outputText value="Volume total : #{gestionCargaison.getVolumeTotal(gestionCargaison.cargaison)} m3" />
+							<h:outputText value="Cout : #{gestionCargaison.getCout(gestionCargaison.cargaison.idCargaison)} €" />
+					
+						
+					
+						
+					
+					<h2 style="text-align:center;">Liste des Marchandises de la cargaisons</h2>
+				<br /> <br />
+					<h:dataTable class="table table-striped"
+						value="#{gestionCargaison.getAllMarchandiseByCargaison(gestionCargaison.cargaison)}" var="marchandise"
+						width="100%">
+
+
+						<h:column>
+							<!-- en-tête de la colonne -->
+							<f:facet name="header">
+								<h:outputText value="N° Marchandise" />
+							</f:facet>
+							<!-- donnée de la colonne -->
+							<h:outputText value="#{marchandise.idMarchandise}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nom" />
+							</f:facet>
+							<h:outputText value="#{marchandise.nom}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Poids unitaire (en kg)" />
+							</f:facet>
+							<h:outputText value="#{marchandise.poids}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Volume unitaire (en m3)" />
+							</f:facet>
+							<h:outputText value="#{marchandise.volume}" />
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Quantité" />
+							</f:facet>
+							<h:outputText value="#{marchandise.quantite}" />
+						</h:column>
+
+
+						<!-- Colonne pour modifier la marchandise -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la modification -->
+							<!-- 
+						attribut du lien h:commandLink:
+							- action : clé d'outcom pour la navigation (ref faces-config.xml)
+							- actionListener : méthode à invoquer dans le managedBean
+				 -->
+							<h:commandLink id="update" action="updateMarchandise"
+								actionListener="#{gestionMarchandise.setMarchandise}">
+
+								<!-- passage de paramètre au composant : nom updateID / valeur = l'id de la marchandise -->
+								<f:param id="updateID" name="id"
+									value="#{marchandise.idMarchandise}" />
+
+								<!-- Label du lien -->
+								<h:outputText value="Modifier" />
+
+							</h:commandLink>
+						</h:column>
+
+						<!-- Colonne pour supprimer la marchandise -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText />
+							</f:facet>
+							<!-- Donnée de la colonne : lien pour la suppression -->
+
+							<h:commandLink id="delete" action="listeMarchandise"
+								actionListener="#{gestioMarchandise.deleteMarchandise}">
+
+								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
+								<f:param id="deleteID" name="id"
+									value="#{marchandise.idMarchandise}" />
+
+								<!-- Label du lien -->
+								<h:outputText value="Supprimer" />
+
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+					
+				
+					<f:facet name="footer">
+						<b:commandButton value="Sauvegarder les changements et afficher la liste des marchandises" action="listeMarchandise"
+								actionListener="#{gestionCargaison.modifierCargaison}" look="success"
+								style="width:100%; margin-top:10px;" />
+					</f:facet>
+					
+					<f:facet name="footer">
+						<b:commandButton value="Sauvegarder les changements et retourner à la liste des cargaisons" action="listeCargaison"
+								actionListener="#{gestionCargaison.modifierCargaison}" look="success"
+								style="width:100%; margin-top:10px;" />
+					</f:facet>
+					
+					</h:panelGrid>
+				</h:form>
+
+			 </div>
+		</ui:define>
+	</ui:composition>
+</body>
 </html>

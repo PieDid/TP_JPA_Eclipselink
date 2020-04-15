@@ -17,10 +17,9 @@
 		<ui:define name="content">
 
 			<h:form>
-
 				<h:panelGrid ccolumns="3" cellpadding="10" cellspacing="10" width="40%" 
 					style="text-align: right; margin: auto; padding-bottom:10px;">
-
+				
 					<f:facet name="header">
 						<div style="text-align: center;">
 							<h:graphicImage library="images" name="ajouter.png" width="30%" />
@@ -33,8 +32,7 @@
 							Ajout d'une cargaison aérienne</div>
 					</f:facet>
 
-					<h:outputLabel styleClass="text" for="nomCargaison"
-						value="Nom de la cargaison : " />
+					<h:outputLabel styleClass="text" for="nomCargaison" value="Nom de la cargaison : " />
 					<h:inputText style="display: inline-table; " id="nomCargaison" required="true"
 						requiredMessage="Veuillez entrer un nom."
 						value="#{gestionCargaison.cargaison.nomCargaison}" />
@@ -54,17 +52,15 @@
 						requiredMessage="Veuillez entrer un date de livraison."
 						value="#{gestionCargaison.cargaison.dateLivraison}"  />
 					<h:message for="dateCargaison" styleClass="error" />
-					
-					<h:outputLabel styleClass="text" for="poidsMaxCargaison"
-						value="poids maximum de la cargaison (kg) : " />
-					<h:inputText style="display: inline-table; " id="poidsMaxCargaison" required="true"
-						requiredMessage="Veuillez entrer un poids maximum."
-						value="#{gestionCargaison.cargaison.poidsMaximal}"  />
-					<h:message for="poidsMaxCargaison" styleClass="error" />
-
 
 					<f:facet name="footer">
-						<b:commandButton value="Ajouter une cargaison aérienne" action="listeMarchandise"
+						<b:commandButton value="Ajouter une cargaison aérienne - Retour vers la liste des marchandises" action="listeMarchandise"
+								actionListener="#{gestionCargaison.ajouterCargaisonAerienne}" look="success"
+								style="width:100%; margin-top:10px;" />
+					</f:facet>
+					
+					<f:facet name="footer">
+						<b:commandButton value="Ajouter une cargaison aérienne - Retour vers la liste des cargaisons" action="listeCargaison"
 								actionListener="#{gestionCargaison.ajouterCargaisonAerienne}" look="success"
 								style="width:100%; margin-top:10px;" />
 					</f:facet>

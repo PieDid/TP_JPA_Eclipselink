@@ -124,14 +124,14 @@
 							- action : clé d'outcom pour la navigation (ref faces-config.xml)
 							- actionListener : méthode à invoquer dans le managedBean
 				 -->
-							<h:commandLink id="update" action="updateCargaison"
+							<h:commandLink id="details" action="detailCargaison"
 								actionListener="#{gestionCargaison.choisirCargaison}">
 
 								<!-- passage de paramètre au composant : nom updateID / valeur = l'id du client -->
 								<f:param id="choixID" name="id" value="#{cargaison.idCargaison}" />
 
 								<!-- label du lien -->
-								<h:graphicImage library="images" name="modifier.png"
+								<h:graphicImage library="images" name="details.png"
 									width="25px" />
 							</h:commandLink>
 						</h:column>
@@ -252,14 +252,14 @@
 							- action : clé d'outcom pour la navigation (ref faces-config.xml)
 							- actionListener : méthode à invoquer dans le managedBean
 				 -->
-							<h:commandLink id="update" action="updateCargaison"
+							<h:commandLink id="detail" action="detailCargaison"
 								actionListener="#{gestionCargaison.choisirCargaison}">
 
 								<!-- passage de paramètre au composant : nom updateID / valeur = l'id du client -->
 								<f:param id="choixID" name="id" value="#{cargaison.idCargaison}" />
 
 								<!-- label du lien -->
-								<h:graphicImage library="images" name="modifier.png"
+								<h:graphicImage library="images" name="details.png"
 									width="25px" />
 							</h:commandLink>
 						</h:column>

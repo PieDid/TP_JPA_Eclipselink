@@ -108,6 +108,22 @@ public class Marchandise implements Serializable {
 	
 	
 
+	/**
+	 * @return the quantite
+	 */
+	public int getQuantite() {
+		return quantite;
+	}
+
+
+	/**
+	 * @param quantite the quantite to set
+	 */
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+
 	public Cargaison getCargaison() {
 		return cargaison;
 	}

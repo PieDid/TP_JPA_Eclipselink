@@ -15,6 +15,7 @@ import javax.faces.event.ActionEvent;
 import com.intiformation.tpjpa.entity.Cargaison;
 import com.intiformation.tpjpa.entity.CargaisonAerienne;
 import com.intiformation.tpjpa.entity.CargaisonRoutiere;
+import com.intiformation.tpjpa.entity.Marchandise;
 import com.intiformation.tpjpa.service.IService;
 import com.intiformation.tpjpa.service.Service;
 
@@ -51,6 +52,9 @@ public class GestionCargaisonBean implements Serializable{
 		return service.recupererToutesCargaisons();
 	}
 	
+	public List<Marchandise> getAllMarchandiseByCargaison(Cargaison cargaison){
+		return service.recupererToutesMarchandisesParIdCargaison(cargaison);
+	}
 
 	public List<Cargaison> getCargaisonsAeriennes() {
 		return service.recupererCargaisonAerienne();
@@ -116,6 +120,15 @@ public class GestionCargaisonBean implements Serializable{
 		
 		service.ajouterCargaisonRoutiere((CargaisonRoutiere) cargaison);
 		
+	}
+	
+	public void modifierCargaison(ActionEvent event) {
+		
+		
+		if(cargaison.getClass().equals(CargaisonAerienne.class))
+			service.modifierCargaisonAerienne((CargaisonAerienne) cargaison);
+		else 
+			service.modifierCargaisonRoutiere((CargaisonRoutiere) cargaison);
 	}
 	
 	/*__________________ G/S _________________*/
