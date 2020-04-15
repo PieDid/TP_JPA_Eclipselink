@@ -14,11 +14,11 @@
 		<ui:define name="content">
 
 
-			<div style="margin: auto; width: 80%;">
-				<h1>Détail de la cargaison</h1>
+			<div style="margin: auto; width: 80%; text-align:center;">
+				
 
 				<h:form>
-					<h:panelGrid ccolumns="6" cellpadding="10" cellspacing="10" width="60%" 
+					<h:panelGrid columns="3" cellpadding="10" cellspacing="10" width="60%" 
 					style=" margin: auto; padding-bottom:10px;">
 					
 					<f:facet name="header">
@@ -27,7 +27,12 @@
 						</div>
 					</f:facet>
 					
-					<h:outputLabel styleClass="text" for="nomCargaison"
+					<f:facet name = "header">
+						<h2 style="text-align:center; color:skyblue;" > Détail de la cargaison</h2>
+					</f:facet>
+					
+					
+					<p:outputLabel styleClass="text" for="nomCargaison"
 						value="Nom de la cargaison : " />
 					<h:inputText style="display: inline-table; " id="nomCargaison" required="true"
 						requiredMessage="Veuillez entrer un nom."
@@ -61,26 +66,30 @@
 					<c:if test="#{gestionCargaison.isCargaisonRoutiere()}">
 						<h:outputLabel styleClass="text" for="temperatureCargaison"
 						value="température de conservation (°C) : " />
-					<h:inputText style="display: inline-table; " id="temperatureCargaison" required="true"
+						<h:inputText style="display: inline-table; " id="temperatureCargaison" required="true"
 						requiredMessage="Veuillez entrer un température de conservation."
 						value="#{gestionCargaison.cargaison.temperatureConservation}"  />
-					<h:message for="temperatureCargaison" styleClass="error" />
+						<h:message for="temperatureCargaison" styleClass="error" />
 					</c:if>
 					
-				
+					
 							<!-- en-tête de la colonne -->
-							
-							<h:outputText value="Poids total : #{gestionCargaison.getPoidsTotal(gestionCargaison.cargaison)} kg" />
-							
+					<f:facet name ="footer">
+					<div style = "text-align: center; font-weight:bold; color:blue; font-size:20px; margin-top:15px;">
+					<h:outputText  value="Poids total : #{gestionCargaison.getPoidsTotal(gestionCargaison.cargaison)} kg" />
+					</div>
+					<div style = "text-align: center; font-weight:bold; color:blue; font-size:20px;">
+					<h:outputText value="Volume total : #{gestionCargaison.getVolumeTotal(gestionCargaison.cargaison)} m3" />
+					</div>
+					<div style = "text-align: center; font-weight:bold; color:blue; font-size:20px;">
+					<h:outputText  value="Cout : #{gestionCargaison.getCout(gestionCargaison.cargaison.idCargaison)} €" />
+					</div>
+					</f:facet>
 						
-							<h:outputText value="Volume total : #{gestionCargaison.getVolumeTotal(gestionCargaison.cargaison)} m3" />
-							<h:outputText value="Cout : #{gestionCargaison.getCout(gestionCargaison.cargaison.idCargaison)} €" />
 					
-						
+					<f:facet name="footer">
 					
-						
-					
-					<h2 style="text-align:center;">Liste des Marchandises de la cargaisons</h2>
+					<h2 style="text-align:center; color : skyblue;">Liste des Marchandises de la cargaisons</h2>
 				<br /> <br />
 					<h:dataTable class="table table-striped"
 						value="#{gestionCargaison.getAllMarchandiseByCargaison()}" var="marchandise"
@@ -156,13 +165,8 @@
 							</f:facet>
 							<!-- Donnée de la colonne : lien pour la suppression -->
 
-							<h:commandLink id="delete" action="listeMarchandise"
-								actionListener="#{gestionMarchandise.deleteMarchandise}">
-
-								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
-								<f:param id="deleteID" name="id"
-									value="#{marchandise.idMarchandise}" />
-
+							<h:commandLink id="delete" action="detailCargaison"
+								actionListener="#{gestionMarchandise.deleteMarchandiseFromCargaison(marchandise.idMarchandise)}">
 								<!-- Label du lien -->
 								<h:outputText value="Supprimer" />
 
@@ -170,16 +174,16 @@
 						</h:column>
 					</h:dataTable>
 					
-				
+				</f:facet>
 					<f:facet name="footer">
 						<b:commandButton value="Sauvegarder les changements et afficher la liste des marchandises" action="listeMarchandise"
-								actionListener="#{gestionCargaison.modifierCargaison}" look="success"
+								actionListener="#{gestionCargaison.modifierCargaison}" look="warning"
 								style="width:100%; margin-top:10px;" />
 					</f:facet>
 					
 					<f:facet name="footer">
 						<b:commandButton value="Sauvegarder les changements et retourner à la liste des cargaisons" action="listeCargaison"
-								actionListener="#{gestionCargaison.modifierCargaison}" look="success"
+								actionListener="#{gestionCargaison.modifierCargaison}" look="warning"
 								style="width:100%; margin-top:10px;" />
 					</f:facet>
 					

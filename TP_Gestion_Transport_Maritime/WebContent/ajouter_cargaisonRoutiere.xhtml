@@ -18,7 +18,7 @@
 
 			<h:form>
 
-				<h:panelGrid columns="3" cellpadding="10" cellspacing="10"
+				<h:panelGrid columns="3" border="1" cellpadding="10" cellspacing="10"
 					width="40%"
 					style="text-align: right; margin: auto; padding-bottom:10px;">
 
@@ -65,13 +65,13 @@
 					
 					<f:facet name="footer">
 						<b:commandButton value="Ajouter une cargaison routière - Retour vers la liste des marchandises" action="listeMarchandise"
-								actionListener="#{gestionCargaison.ajouterCargaisonRoutiere}" look="success"
+								actionListener="#{gestionCargaison.ajouterCargaisonRoutiere}" look="warning"
 								style="width:100%; margin-top:10px;" />
 					</f:facet>
 					
 					<f:facet name="footer">
 						<b:commandButton value="Ajouter une cargaison routière - Retour vers la liste des cargaisons" action="listeCargaison"
-								actionListener="#{gestionCargaison.ajouterCargaisonRoutiere}" look="success"
+								actionListener="#{gestionCargaison.ajouterCargaisonRoutiere}" look="warning"
 								style="width:100%; margin-top:10px;" />
 					</f:facet>
 			

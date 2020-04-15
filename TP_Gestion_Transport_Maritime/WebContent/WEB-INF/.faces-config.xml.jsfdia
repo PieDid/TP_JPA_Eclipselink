@@ -95,6 +95,9 @@
     ID="updateMarchandise::#modifier_marchandise.xhtml" NAME="output2"
     PATH="/modifier_marchandise.xhtml"
     TARGET="rules:#modifier_marchandise.xhtml" TITLE="updateMarchandise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="detailCargaison::#detail_cargaison.xhtml"
+    NAME="output3" PATH="/detail_cargaison.xhtml"
+    TARGET="rules:#detail_cargaison.xhtml" TITLE="detailCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_cargaisonAerienne.xhtml"

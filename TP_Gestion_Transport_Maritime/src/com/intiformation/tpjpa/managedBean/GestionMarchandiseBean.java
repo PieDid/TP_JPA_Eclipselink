@@ -82,6 +82,12 @@ public class GestionMarchandiseBean implements Serializable {
 
 	} 
 	
+	public void deleteMarchandiseFromCargaison(Long idMarchandise) {
+		marchandise = service.recupererMarchandiseParId(idMarchandise);
+		marchandise.setCargaison(null);
+		service.modifierMarchandise(marchandise);
+	}
+	
 	/* Getters et Setters */
 	
 
