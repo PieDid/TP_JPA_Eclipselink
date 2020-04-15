@@ -112,6 +112,16 @@ public class GestionCargaisonBean implements Serializable{
 		 Long idCargaison = (long) cp.getValue();
 
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
+		
+		Cargaison cargaison = service.recupererCargaisonParId(idCargaison);
+		List<Marchandise> listeMarchandiseCargaison = service.recupererToutesMarchandisesParIdCargaison(cargaison);
+		
+		// suppression de toutes les marchandises contenues dans la livraison
+		if(listeMarchandiseCargaison != null) {
+			for (Marchandise march : listeMarchandiseCargaison) {
+				service.supprimerMarchandise(march.getIdMarchandise());
+			}
+		}
 
 		service.supprimerCargaion(idCargaison);
 

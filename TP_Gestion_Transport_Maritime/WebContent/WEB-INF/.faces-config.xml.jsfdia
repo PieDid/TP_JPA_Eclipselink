@@ -43,6 +43,9 @@
     ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output"
     PATH="/accueil_marchandise.xhtml"
     TARGET="rules:#accueil_marchandise.xhtml" TITLE="listeMarchandise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="detailCargaison::#detail_cargaison.xhtml"
+    NAME="output1" PATH="/detail_cargaison.xhtml"
+    TARGET="rules:#detail_cargaison.xhtml" TITLE="detailCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_marchandise.xhtml"
@@ -67,9 +70,6 @@
     ID="addRoutiere::#ajouter_cargaisonRoutiere.xhtml" NAME="output1"
     PATH="/ajouter_cargaisonRoutiere.xhtml"
     TARGET="rules:#ajouter_cargaisonRoutiere.xhtml" TITLE="addRoutiere" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="updateCargaison::#detail_cargaison.xhtml"
-    NAME="output2" PATH="/detail_cargaison.xhtml"
-    TARGET="rules:#detail_cargaison.xhtml" TITLE="updateCargaison" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output3"
     PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="listeCargaison::#accueil_cargaison.xhtml"
@@ -91,6 +91,10 @@
    <PROCESS-ITEM-OUTPUT ID="listeCargaison::#accueil_cargaison.xhtml"
     NAME="output1" PATH="/accueil_cargaison.xhtml"
     TARGET="rules:#accueil_cargaison.xhtml" TITLE="listeCargaison" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updateMarchandise::#modifier_marchandise.xhtml" NAME="output2"
+    PATH="/modifier_marchandise.xhtml"
+    TARGET="rules:#modifier_marchandise.xhtml" TITLE="updateMarchandise" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter_cargaisonAerienne.xhtml"

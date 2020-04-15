@@ -160,7 +160,7 @@ public class Service implements IService {
 	
 	@Override
 	public void ajouterMarchandiseCargaison (Long idMarchandise, int quantite, Cargaison cargaison) {
-		return marchandiseDao.ajouterMarchandiseCargaison(idMarchandise, quantite, cargaison);
+		marchandiseDao.ajouterMarchandiseCargaison(idMarchandise, quantite, cargaison);
 	}
 	
 	/////////////////////// CARGAISONS //////////////////////////

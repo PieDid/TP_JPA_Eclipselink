@@ -92,6 +92,14 @@
 				<from-outcome>listeMarchandise</from-outcome>
 				<!-- 3.2.2. Page de destination -->
 				<to-view-id>/accueil_marchandise.xhtml</to-view-id>
+			</navigation-case>	
+			
+			<!-- 3.2. Cas de navigation : modifier_client.xhtml vers accueil.xhtml -->
+			<navigation-case>
+				<!-- 3.2.1. Clé d'outcome (valeur de l'attribut 'action' de h:commandButton de modifier_client.xhtml) -->
+				<from-outcome>detailCargaison</from-outcome>
+				<!-- 3.2.2. Page de destination -->
+				<to-view-id>/detail_cargaison.xhtml</to-view-id>
 			</navigation-case>			
 		
 		</navigation-rule>
@@ -135,14 +143,6 @@
 				<to-view-id>/ajouter_cargaisonRoutiere.xhtml</to-view-id>
 			</navigation-case>
 
-			<!-- 5.3. Cas de navigation : accueil_compte.xhtml vers modifier_compte.xhtml (Modification) -->
-			<navigation-case>
-				<!-- 5.3.1. Clé d'outcome (valeur de l'attribut 'action' de h:commandButton) -->
-				<from-outcome>updateCargaison</from-outcome>
-				<!-- 5.3.2. Page de destination -->
-				<to-view-id>/detail_cargaison.xhtml</to-view-id>
-			</navigation-case>
-
 			<!-- 5.8. Cas de navigation : accueil_compte.xhtml vers accueil.xhtml (Retour à l'acceuil) -->
 			<navigation-case>
 				<!-- 5.4.1. Clé d'outcome (valeur de l'attribut 'action' de h:commandButton) -->
@@ -167,7 +167,7 @@
 			</navigation-case>
 		</navigation-rule>
 
-		<!-- 6. Règle de navigation pour la page 'modifier_compte.xhtml' -->
+		<!-- 6. Règle de navigation pour la page 'detail_cargaison.xhtml' -->
 		<navigation-rule>
 
 			<!-- 6.1. Page de départ -->
@@ -188,12 +188,20 @@
 				<from-outcome>listeCargaison</from-outcome>
 				<!-- 6.2.2. Page de destination -->
 				<to-view-id>/accueil_cargaison.xhtml</to-view-id>
+			</navigation-case>	
+			
+				<!-- 4.2. Cas de navigation : ajouter_client.xhtml vers accueil.xhtml (Modification) -->
+			<navigation-case>
+				<!-- 4.2.1. Clé d'outcome (valeur de l'attribut 'action' de h:commandButton de ajouter_client.xhtml) -->
+				<from-outcome>updateMarchandise</from-outcome>
+				<!-- 4.2.2. Page de destination -->
+				<to-view-id>/modifier_marchandise.xhtml</to-view-id>
 			</navigation-case>			
 		
 		</navigation-rule>
 		
 		
-		<!-- 7. Règle de navigation pour la page 'ajouter_compte.xhtml' -->
+		<!-- 7. Règle de navigation pour la page 'ajouter_cargaisonAerienne.xhtml' -->
 		<navigation-rule>
 
 			<!-- 7.1. Page de départ -->
@@ -218,7 +226,7 @@
 
 		</navigation-rule>
 
-		<!-- 7. Règle de navigation pour la page 'ajouter_compte.xhtml' -->
+		<!-- 7. Règle de navigation pour la page 'ajouter_cargaisonRoutiere.xhtml' -->
 		<navigation-rule>
 
 			<!-- 7.1. Page de départ -->
@@ -241,6 +249,5 @@
 			</navigation-case>			
 		
 		</navigation-rule>
-		
 		
 </faces-config>
