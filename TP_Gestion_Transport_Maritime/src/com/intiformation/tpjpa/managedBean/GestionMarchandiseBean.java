@@ -3,6 +3,7 @@ package com.intiformation.tpjpa.managedBean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIParameter;
@@ -30,7 +31,7 @@ public class GestionMarchandiseBean implements Serializable {
 		service = new Service();
 	}
 	
-	/*_________________ meths ________________*/
+	/* Méthodes */
 	
 	public List<Marchandise> getAllMarchandise() {
 		return service.recupererToutesMarchandises();
@@ -43,7 +44,7 @@ public class GestionMarchandiseBean implements Serializable {
 
 	public void setMarchandise(ActionEvent event) {
 		
-			UIParameter cp = (UIParameter) event.getComponent().findComponent("setID");
+			UIParameter cp = (UIParameter) event.getComponent().findComponent("updateID");
 
 			Long idMarchandise = (Long) cp.getValue();
 
@@ -51,11 +52,29 @@ public class GestionMarchandiseBean implements Serializable {
 	}
 	
 	
+
+	
+	public void addMarchandise(ActionEvent event) {
+		
+		FacesContext contextJsf = FacesContext.getCurrentInstance();
+		
+		service.ajouterMarchandise(marchandise);
+			
+	}
+	
+	public void updateMarchandise(ActionEvent event) {
+		
+		FacesContext contextJsf = FacesContext.getCurrentInstance();
+		
+		service.modifierMarchandise(marchandise);
+			
+	}
+	
 	public void deleteMarchandise(ActionEvent event) {
 
 		UIParameter cp = (UIParameter) event.getComponent().findComponent("deleteID");
 
-		 Long idMarchandise = (long) cp.getValue();
+		Long idMarchandise = (long) cp.getValue();
 
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
 

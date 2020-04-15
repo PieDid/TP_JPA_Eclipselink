@@ -30,9 +30,9 @@
     ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output3"
     PATH="/accueil_marchandise.xhtml"
     TARGET="rules:#accueil_marchandise.xhtml" TITLE="listeMarchandise" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="detailCargaison::#detail_cargaison.xhtml"
+   <PROCESS-ITEM-OUTPUT ID="updateCargaison::#detail_cargaison.xhtml"
     NAME="output4" PATH="/detail_cargaison.xhtml"
-    TARGET="rules:#detail_cargaison.xhtml" TITLE="detailCargaison" model-entity="JSFProcessItemOutput"/>
+    TARGET="rules:#detail_cargaison.xhtml" TITLE="updateCargaison" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#modifier_marchandise.xhtml"

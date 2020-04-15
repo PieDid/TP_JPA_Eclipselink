@@ -37,7 +37,9 @@
 
 
 				<h:form style="text-align: left;">
-				<h2>Liste de toutes les Marchandises disponibles </h2>
+				<h:graphicImage library="images" name="marchandises.png"
+						width="10%" />
+				<h2 style="display: inline;">Liste de toutes les Marchandises disponibles </h2>
 				<br /> <br />
 					<h:dataTable class="table table-striped"
 						value="#{gestionMarchandise.getAllMarchandise()}" var="marchandise"
@@ -80,12 +82,8 @@
 							<f:facet name="header">
 								<h:outputText />
 							</f:facet>
+							
 							<!-- Donnée de la colonne : lien pour la modification -->
-							<!-- 
-						attribut du lien h:commandLink:
-							- action : clé d'outcom pour la navigation (ref faces-config.xml)
-							- actionListener : méthode à invoquer dans le managedBean
-				 -->
 							<h:commandLink id="update" action="updateMarchandise"
 								actionListener="#{gestionMarchandise.setMarchandise}">
 
@@ -94,7 +92,8 @@
 									value="#{marchandise.idMarchandise}" />
 
 								<!-- Label du lien -->
-								<h:outputText value="Modifier" />
+								<h:graphicImage library="images" name="modifier.png"
+									width="25px" />
 
 							</h:commandLink>
 						</h:column>
@@ -107,14 +106,15 @@
 							<!-- Donnée de la colonne : lien pour la suppression -->
 
 							<h:commandLink id="delete" action="listeMarchandise"
-								actionListener="#{gestioMarchandise.deleteMarchandise}">
+								actionListener="#{gestionMarchandise.deleteMarchandise}">
 
 								<!-- passage de paramètre au composant : nom deleteID / valeur = l'id du livre -->
 								<f:param id="deleteID" name="id"
 									value="#{marchandise.idMarchandise}" />
 
 								<!-- Label du lien -->
-								<h:outputText value="Supprimer" />
+								<h:graphicImage library="images" name="supprimer.png"
+									width="25px" />
 
 							</h:commandLink>
 						</h:column>
@@ -136,8 +136,9 @@
 			</div>
 
 
-			
-
+			<br></br>
+			<br></br>
+			<br></br>
 
 
 			<!-- ================================================================= -->
@@ -147,8 +148,7 @@
 
 			<div style="text-align: center;">
 				<h:commandButton class="btn btn-success btn-lg"
-					action="detailCargaison"
-					actionListener="#{gestionCargaison.choisirCargaison}"
+					action="updateCargaison"
 					value="Ajouter Marchandises à une cargaison" />
 			</div>
 
