@@ -48,13 +48,23 @@
 						requiredMessage="Veuillez entrer un date de livraison."
 						value="#{gestionCargaison.cargaison.dateLivraison}"  />
 					<h:message for="dateCargaison" styleClass="error" />
-					<c:if test="#{gestionCargaison.cargaison.getClass().equals(com.intiformation.tpjpa.entity.CargaisonAerienne)}">
+					
+					<c:if test="#{gestionCargaison.isCargaisonAerienne()}">
 						<h:outputLabel styleClass="text" for="poidsMaxCargaison"
 						value="poids maximum de la cargaison (kg) :" />
 						<h:inputText style="display: inline-table; " id="poidsMaxCargaison" required="true"
 						requiredMessage="Veuillez entrer un poids maximum."
 						value="#{gestionCargaison.cargaison.poidsMaximal}"  />
 						<h:message for="poidsMaxCargaison" styleClass="error" />
+					</c:if>
+					
+					<c:if test="#{gestionCargaison.isCargaisonRoutiere()}">
+						<h:outputLabel styleClass="text" for="temperatureCargaison"
+						value="température de conservation (°C) : " />
+					<h:inputText style="display: inline-table; " id="temperatureCargaison" required="true"
+						requiredMessage="Veuillez entrer un température de conservation."
+						value="#{gestionCargaison.cargaison.temperatureConservation}"  />
+					<h:message for="temperatureCargaison" styleClass="error" />
 					</c:if>
 					
 				
@@ -73,7 +83,7 @@
 					<h2 style="text-align:center;">Liste des Marchandises de la cargaisons</h2>
 				<br /> <br />
 					<h:dataTable class="table table-striped"
-						value="#{gestionCargaison.getAllMarchandiseByCargaison(gestionCargaison.cargaison)}" var="marchandise"
+						value="#{gestionCargaison.getAllMarchandiseByCargaison()}" var="marchandise"
 						width="100%">
 
 

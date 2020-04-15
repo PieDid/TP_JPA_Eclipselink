@@ -52,8 +52,8 @@ public class GestionCargaisonBean implements Serializable{
 		return service.recupererToutesCargaisons();
 	}
 	
-	public List<Marchandise> getAllMarchandiseByCargaison(Cargaison cargaison){
-		return service.recupererToutesMarchandisesParIdCargaison(cargaison);
+	public List<Marchandise> getAllMarchandiseByCargaison(){
+		return service.recupererToutesMarchandisesParIdCargaison(this.cargaison);
 	}
 
 	public List<Cargaison> getCargaisonsAeriennes() {
@@ -82,6 +82,14 @@ public class GestionCargaisonBean implements Serializable{
 	
 	public void initialiserCargaisonRoutiere(ActionEvent event) {
 		setCargaison(new CargaisonRoutiere());	
+	}
+	
+	public boolean isCargaisonAerienne() {
+		return this.cargaison.getClass().equals(CargaisonAerienne.class);
+	}
+	
+	public boolean isCargaisonRoutiere() {
+		return this.cargaison.getClass().equals(CargaisonRoutiere.class);
 	}
 	
 	
