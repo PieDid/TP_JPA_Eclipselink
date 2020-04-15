@@ -45,10 +45,12 @@
 			<h:inputText id="volumeMarchandise" required="true" requiredMessage="Veuillez entrer une volume." value="#{gestionMarchandise.marchandise.volume}" />
 			<h:message for="volumeMarchandise" styleClass="error" />
 			
-
+<br></br>
+<br></br>
 		
 			<f:facet name="footer">
-				<h:commandButton action="listeMarchandise" 
+				<h:commandButton class="btn btn-info btn-lg"
+				action="listeMarchandise" 
 								 actionListener="#{gestionMarchandise.addMarchandise}"
 								 value="Créer la nouvelle marchandise" />
 			</f:facet>

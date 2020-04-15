@@ -158,6 +158,11 @@ public class Service implements IService {
 		return marchandiseDao.getMarchandiseByIdCargaison(cargaison);
 	}
 	
+	@Override
+	public void ajouterMarchandiseCargaison (Long idMarchandise, int quantite, Cargaison cargaison) {
+		return marchandiseDao.ajouterMarchandiseCargaison(idMarchandise, quantite, cargaison);
+	}
+	
 	/////////////////////// CARGAISONS //////////////////////////
 	
 	/**

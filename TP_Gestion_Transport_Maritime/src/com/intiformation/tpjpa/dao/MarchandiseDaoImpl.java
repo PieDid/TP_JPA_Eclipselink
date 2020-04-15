@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -192,6 +193,21 @@ public class MarchandiseDaoImpl implements IMarchandiseDao<Marchandise> {
 		
 	}
 	
+	public void ajouterMarchandiseCargaison (Long idMarchandise, int quantite, Cargaison cargaison) {
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		
+		CriteriaUpdate<Marchandise> cu = cb.createCriteriaUpdate(Marchandise.class);
+		
+		Root<Marchandise> clauseFROM = cu.from(Marchandise.class);
+		
+		CriteriaUpdate<Marchandise> clauseSET = cu.set(clauseFROM.get("quantité"), quantite).set(clauseFROM.get("cargaison_id"), cargaison);
+		
+		Predicate where = cb.equal(clauseFROM.get("numéro_marchandise"), idMarchandise);
+		
+		CriteriaUpdate<Marchandise> clauseWhere = cu.where(where);
+		
+	}
 	
 
 }//end class

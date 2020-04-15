@@ -94,6 +94,8 @@ public interface IService {
 	 */
 	public List<Marchandise> recupererToutesMarchandisesParIdCargaison(Cargaison cargaison);
 	
+	public void ajouterMarchandiseCargaison(Long idMarchandise, int quantite, Cargaison cargaison);
+	
 	/////////////////////// CARGAISONS //////////////////////////
 	
 	/**
@@ -158,5 +160,7 @@ public interface IService {
 	 * @return : le cout de la cargaison avec l'id idCargaison
 	 */
 	public double coutCargaison(Long idCargaison);
+
+	
 
 }

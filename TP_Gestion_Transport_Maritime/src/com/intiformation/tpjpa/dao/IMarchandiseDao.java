@@ -25,6 +25,7 @@ public interface IMarchandiseDao<Marchandise> {
 	
 	public double volumeTotal(Cargaison cargaison);
 
+	public void ajouterMarchandiseCargaison (Long idMarchandise, int quantite, Cargaison cargaison);
 	
 	
 	

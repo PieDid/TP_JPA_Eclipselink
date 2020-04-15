@@ -11,17 +11,42 @@
 	<ui:composition   template="templates/layout.xhtml">
 
 		<ui:define name="content">
+		
+		<div style="text-align: center;">
+			<h:graphicImage library="images" name="Cadre.jpg" />
+		</div>
+		
+			<br></br>
+		
+
+    
+      <h1 style="text-align: center;">Bienvenue #{authentificationBean.utilisateurSession.nom} #{authentificationBean.utilisateurSession.prenom},</h1>
+      <p class="lead text-muted" style="text-align: center;"> Vous pouvez cliquer sur les boutons ci-dessous pour gérer les commandes : </p>
+      <p>
+		
+		<div style="text-align: center;">
 			<h:form>
-				<h:commandButton action="listeCargaison"
-					value="Afficher la liste des cargaisons" />
+				<h:commandButton class="btn btn-success btn-lg"
+				action="listeCargaison"
+				value="Afficher la liste des cargaisons" />
 			</h:form>
-			
-			
+		</div>
+		
+		<br></br>
+		
+		<div style="text-align: center;">
 			<h:form>
-				<h:commandButton action="listeMarchandise"
-					value="Afficher la liste des marchandises" />
+				<h:commandButton class="btn btn-info btn-lg"
+				action="listeMarchandise"
+				value="Afficher la liste des marchandises disponible" />
 			</h:form>
-			
+		</div>
+
+      </p>
+    
+
+
+		
 		</ui:define>
 	</ui:composition>
 
