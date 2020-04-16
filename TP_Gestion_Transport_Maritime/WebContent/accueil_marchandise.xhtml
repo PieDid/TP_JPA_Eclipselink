@@ -84,6 +84,28 @@
 							</f:facet>
 							
 							<!-- Donnée de la colonne : lien pour la modification -->
+							<h:commandLink id="ajoutCargaison" action="ajouterAlaCargaison"
+								actionListener="#{gestionMarchandise.setMarchandise}">
+
+								<!-- passage de paramètre au composant : nom updateID / valeur = l'id de la marchandise -->
+								<f:param id="ajoutCargaisonID" name="id"
+									value="#{marchandise.idMarchandise}" />
+
+								<!-- Label du lien -->
+								<h:graphicImage library="images" name="ajouter.png"
+									width="25px" />
+
+							</h:commandLink>
+						</h:column>
+
+
+						<!-- Colonne pour modifier la marchandise -->
+						<h:column>
+							<f:facet name="header">
+								<h:outputText />
+							</f:facet>
+							
+							<!-- Donnée de la colonne : lien pour la modification -->
 							<h:commandLink id="update" action="updateMarchandise"
 								actionListener="#{gestionMarchandise.setMarchandise}">
 

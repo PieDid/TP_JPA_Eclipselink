@@ -55,12 +55,25 @@
 				<to-view-id>/accueil_marchandise.xhtml</to-view-id>
 			</navigation-case>
 			
-			<!-- accueil_marchandise.xhtml ===> detail_cargaison.xhtml -->
+			<!-- accueil_marchandise.xhtml ===> ajouter_marchandiseAcargaison.xhtml -->
+			<navigation-case>
+				<from-outcome>ajouterAlaCargaison</from-outcome>
+				<to-view-id>/ajouter_marchandiseAcargaison.xhtml</to-view-id>
+			</navigation-case>
+
+		</navigation-rule>
+		
+		<!-- ajouter_marchandiseAcargaison.xhtml -->
+		<navigation-rule>
+			<from-view-id>/ajouter_marchandiseAcargaison.xhtml</from-view-id>
+
+			
+			<!-- ajouter_marchandiseAcargaison.xhtml ===> detail_cargaison.xhtml -->
 			<navigation-case>
 				<from-outcome>detailCargaison</from-outcome>
 				<to-view-id>/detail_cargaison.xhtml</to-view-id>
-			</navigation-case>
-
+			</navigation-case>			
+		
 		</navigation-rule>
 		
 		
