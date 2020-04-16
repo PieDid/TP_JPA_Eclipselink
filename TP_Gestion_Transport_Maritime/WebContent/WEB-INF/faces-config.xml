@@ -67,6 +67,11 @@
 		<navigation-rule>
 			<from-view-id>/ajouter_marchandiseAcargaison.xhtml</from-view-id>
 
+			<!-- ajouter_marchandiseAcargaison.xhtml ===> detail_cargaison.xhtml -->
+			<navigation-case>
+				<from-outcome>listeMarchandise</from-outcome>
+				<to-view-id>/accueil_marchandise.xhtml</to-view-id>
+			</navigation-case>	
 			
 			<!-- ajouter_marchandiseAcargaison.xhtml ===> detail_cargaison.xhtml -->
 			<navigation-case>

@@ -43,44 +43,46 @@
 
 					<br></br>
 
-					<c:if test="#{gestionMarchandise.marchandise.quantite >0 }">
-						<h:outputLabel styleClass="text" for="quantiteMarchandiseA"
-							value="Quantité : " />
-						<h:inputText id="quantiteMarchandiseA" required="true"
-							requiredMessage="Veuillez entrer la quantité souhaitée."
-							value="#{gestionMarchandise.marchandise.quantite}" />
-						<h:message for="quantiteMarchandiseA" styleClass="error" />
-					</c:if>
+
+					<h:outputLabel styleClass="text" for="quantiteMarchandiseA"
+						value="Quantité : " />
+					<h:inputText id="quantiteMarchandiseA" required="true"
+						requiredMessage="Veuillez entrer la quantité souhaitée."
+						value="#{gestionMarchandise.marchandise.quantite}" />
+					<h:message for="quantiteMarchandiseA" styleClass="error" />
+
 
 					<p:outputLabel styleClass="text" for="cargaisonMarchandiseA"
 						value="Cargaison : " />
 					<p:selectOneMenu id="cargaisonMarchandiseA"
-						value="#{gestionMarchandise.marchandise.cargaison}" style="width:250px">
+						value="#{gestionMarchandise.carAId}" style="width:250px">
 						<f:selectItem itemLabel="Choisir une cargaison"
 							itemValue="#{gestionCargaison.cargaison.nom}" />
-						<f:selectItems value="#{gestionCargaison.cargaisonsAeriennes}" var="cargaison"
+						<f:selectItems value="#{gestionCargaison.cargaisonsAeriennes}"
+							var="cargaison"
 							itemLabel="Cargaison n° #{cargaison.idCargaison} : #{cargaison.nomCargaison} #{cargaison.dateLivraison})"
-							itemValue="#{cargaison.nomCargaison}" />
+							itemValue="#{cargaison.idCargaison}" />
 					</p:selectOneMenu>
 					<h:message for="cargaisonMarchandiseA" styleClass="error" />
-					
-					<br></br>
-					
-					<c:if test="#{not empty gestionMarchandise.marchandise.cargaison}">
-						<f:facet name="footer">
-							<h:commandButton class="btn btn-info btn-lg"
-								action="detailCargaison"
-								actionListener="#{gestionMarchandise.updateMarchandise}"
-								value="Ajouter à la marchandise et aller au détail de la cargaison" />
-						</f:facet>
-					</c:if>
-</h:panelGrid>
-</h:form>
-
 
 					<br></br>
-					<br></br>
-<h:form>
+
+
+					<f:facet name="footer">
+						<h:commandButton class="btn btn-info btn-lg"
+							action="listeMarchandise"
+							actionListener="#{gestionMarchandise.updateMarchandise}"
+							value="Ajouter à la marchandise et retourner à la liste des marchandise" />
+						<!--  action="detailCargaison"-->
+					</f:facet>
+
+				</h:panelGrid>
+			</h:form>
+
+
+			<br></br>
+			<br></br>
+			<h:form>
 				<!-- Récupération de la marchandise dans un champ caché -->
 				<h:inputHidden
 					value="#{gestionMarchandise.marchandise.idMarchandise}" />
@@ -98,37 +100,39 @@
 
 					<br></br>
 
-					<c:if test="#{gestionMarchandise.marchandise.quantite >0 }">
-						<h:outputLabel styleClass="text" for="quantiteMarchandiseR"
-							value="Quantité : " />
-						<h:inputText id="quantiteMarchandiseR" required="true"
-							requiredMessage="Veuillez entrer la quantité souhaitée."
-							value="#{gestionMarchandise.marchandise.quantite}" />
-						<h:message for="quantiteMarchandiseR" styleClass="error" />
-					</c:if>
+
+					<h:outputLabel styleClass="text" for="quantiteMarchandiseR"
+						value="Quantité : " />
+					<h:inputText id="quantiteMarchandiseR" required="true"
+						requiredMessage="Veuillez entrer la quantité souhaitée."
+						value="#{gestionMarchandise.marchandise.quantite}" />
+					<h:message for="quantiteMarchandiseR" styleClass="error" />
+
 
 					<p:outputLabel styleClass="text" for="cargaisonMarchandiseR"
 						value="Cargaison : " />
 					<p:selectOneMenu id="cargaisonMarchandiseR"
-						value="#{gestionMarchandise.marchandise.cargaison}" style="width:250px">
+						value="#{gestionMarchandise.carRId}"
+						style="width:250px">
 						<f:selectItem itemLabel="Choisir une cargaison"
 							itemValue="#{gestionCargaison.cargaison.nom}" />
-						<f:selectItems value="#{gestionCargaison.cargaisonsRoutieres}" var="cargaison"
+						<f:selectItems value="#{gestionCargaison.cargaisonsRoutieres}"
+							var="cargaison"
 							itemLabel="Cargaison n° #{cargaison.idCargaison} : #{cargaison.nomCargaison} #{cargaison.dateLivraison})"
-							itemValue="#{cargaison.nomCargaison}" />
+							itemValue="#{cargaison.idCargaison}" />
 					</p:selectOneMenu>
 					<h:message for="cargaisonMarchandiseR" styleClass="error" />
-					
+
 					<br></br>
 
-					<c:if test="#{not empty gestionMarchandise.marchandise.cargaison}">
-						<f:facet name="footer">
-							<h:commandButton class="btn btn-info btn-lg"
-								action="detailCargaison"
-								actionListener="#{gestionMarchandise.updateMarchandise}"
-								value="Ajouter à la marchandise et aller au détail de la cargaison" />
-						</f:facet>
-					</c:if>
+
+					<f:facet name="footer">
+						<h:commandButton class="btn btn-info btn-lg"
+							action="listeMarchandise"
+							actionListener="#{gestionMarchandise.updateMarchandise}"
+							value="Ajouter à la marchandise et retourner à la liste des marchandise" />
+					</f:facet>
+
 
 
 

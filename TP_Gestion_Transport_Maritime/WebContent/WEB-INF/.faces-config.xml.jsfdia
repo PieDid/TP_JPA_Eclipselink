@@ -132,6 +132,10 @@
   PATH="/ajouter_marchandiseAcargaison.xhtml" SHAPE="592,257,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter_marchandiseAcargaison.xhtml:0"
    NAME="item" PATH="/ajouter_marchandiseAcargaison.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listeMarchandise::#accueil_marchandise.xhtml" NAME="output"
+    PATH="/accueil_marchandise.xhtml"
+    TARGET="rules:#accueil_marchandise.xhtml" TITLE="listeMarchandise" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="detailCargaison::#detail_cargaison.xhtml"
     NAME="output1" PATH="/detail_cargaison.xhtml"
     TARGET="rules:#detail_cargaison.xhtml" TITLE="detailCargaison" model-entity="JSFProcessItemOutput"/>

@@ -10,6 +10,8 @@ import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import com.intiformation.tpjpa.entity.CargaisonAerienne;
+import com.intiformation.tpjpa.entity.CargaisonRoutiere;
 import com.intiformation.tpjpa.entity.Marchandise;
 import com.intiformation.tpjpa.service.IService;
 import com.intiformation.tpjpa.service.Service;
@@ -22,6 +24,10 @@ public class GestionMarchandiseBean implements Serializable {
 	
 	List<Marchandise> listeMarchandise;
 	Marchandise marchandise;
+	
+	Long carAId;
+	
+	Long carRId;
 	
 	IService service;
 	
@@ -66,7 +72,12 @@ public class GestionMarchandiseBean implements Serializable {
 		
 		FacesContext contextJsf = FacesContext.getCurrentInstance();
 		
+		if(carAId != null) {marchandise.setCargaison(service.recupererCargaisonParId(carAId));}
+		else if(carRId !=null) {marchandise.setCargaison(service.recupererCargaisonParId(carRId));}
+		
 		service.modifierMarchandise(marchandise);
+		carAId= null;
+		carRId= null;
 			
 	}
 	
@@ -83,6 +94,7 @@ public class GestionMarchandiseBean implements Serializable {
 	} 
 	
 	public void deleteMarchandiseFromCargaison(Long idMarchandise) {
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
 		marchandise = service.recupererMarchandiseParId(idMarchandise);
 		marchandise.setCargaison(null);
 		service.modifierMarchandise(marchandise);
@@ -103,9 +115,39 @@ public class GestionMarchandiseBean implements Serializable {
 		return marchandise;
 	}
 
+	
 	public void setMarchandise(Marchandise marchandise) {
 		this.marchandise = marchandise;
 	}
 
+	/**
+	 * @return the carAId
+	 */
+	public Long getCarAId() {
+		return carAId;
+	}
+
+	/**
+	 * @param carAId the carAId to set
+	 */
+	public void setCarAId(Long carAId) {
+		this.carAId = carAId;
+	}
+
+	/**
+	 * @return the carRId
+	 */
+	public Long getCarRId() {
+		return carRId;
+	}
+
+	/**
+	 * @param carRId the carRId to set
+	 */
+	public void setCarRId(Long carRId) {
+		this.carRId = carRId;
+	}
+
+	
 
 }
