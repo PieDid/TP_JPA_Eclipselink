@@ -153,7 +153,8 @@
 									value="#{marchandise.idMarchandise}" />
 
 								<!-- Label du lien -->
-								<h:outputText value="Modifier" />
+								<h:graphicImage library="images" name="modifier.png"
+									width="25px" />
 
 							</h:commandLink>
 						</h:column>
@@ -168,7 +169,8 @@
 							<h:commandLink id="delete" action="detailCargaison"
 								actionListener="#{gestionMarchandise.deleteMarchandiseFromCargaison(marchandise.idMarchandise)}">
 								<!-- Label du lien -->
-								<h:outputText value="Supprimer" />
+								<h:graphicImage library="images" name="supprimer.png"
+									width="25px" />
 
 							</h:commandLink>
 						</h:column>
@@ -188,6 +190,46 @@
 					</f:facet>
 					
 					</h:panelGrid>
+					
+					
+			<!-- ======================================================= -->
+			<!-- =============== Affichage des messages ================ -->
+			<!-- ======================================================= -->
+			<br />
+			<h:messages globalOnly="true" showDetail="true"
+				infoStyle="color:green;" fatalStyle="color:red;" />
+
+
+			<br />
+			<br />
+			<div id="aide" style="text-align: center; color: #1111111">
+				<h:graphicImage library="images" name="aide.png" width="25px" />
+				<br /> Aide
+			</div>
+			<div id="tableau-aide" style="color: #1111111; display:none;">
+				<table
+					style="margin: auto; text-align: center; padding: auto; width: 80%;">
+					<tr>
+						<td><h:graphicImage library="images" name="modifier.png"
+								width="25px" /></td>
+						<td><h:graphicImage library="images" name="supprimer.png"
+								width="25px" /></td>
+					</tr>
+					<tr>
+						<td>Modifier la Marchandise</td>
+						<td>Supprimer la Marchandise</td>
+					</tr>
+				</table>
+
+			</div>
+			
+			<script type="text/javascript">
+
+			$("#aide").click(function() {
+				$("#tableau-aide").slideToggle("fast");
+			});
+			</script>
+			
 				</h:form>
 
 			 </div>

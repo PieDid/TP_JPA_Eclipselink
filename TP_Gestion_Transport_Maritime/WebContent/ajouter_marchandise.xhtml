@@ -17,10 +17,10 @@
 		<ui:define name="content">
 
 	<h:form>
-	
+
 				<h:panelGrid columns="3" cellpadding="10" cellspacing="10" width="40%" 
 					style="text-align: right; margin: auto; padding-bottom:10px;">
-		
+		<br></br>
 					<f:facet name="header">
 						<div style="text-align: center;">
 							<h:graphicImage library="images" name="ajouter.png" width="30%" />
@@ -29,10 +29,10 @@
 
 					<f:facet name="header">
 						<div
-							style="text-align: center; margin-bottom: 10px; font-size: 30px; font-weight: bold; color: hotpink;">
+							style="text-align: center; margin-top :20px; margin-bottom: 10px; font-size: 30px; font-weight: bold; color: hotpink;">
 							Création d'une Nouvelle Marchandise</div>
 					</f:facet>
-			
+
 			<h:outputLabel styleClass="text" for="nomMarchandise" value="Nom de la marchandise : "/>
 			<h:inputText id="nomMarchandise" required="true" requiredMessage="Veuillez entrer un nom." value="#{gestionMarchandise.marchandise.nom}" />
 			<h:message for="nomMarchandise" styleClass="error" />
